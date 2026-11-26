@@ -1,7 +1,8 @@
 # Como adicionar pratos, vinhos, restaurantes e usuários
 
-Todos os dados ficam em `data/`. Os modelos são treinados a cada execução, então basta editar os
-CSVs e rodar de novo. Formato de cada coluna: [Referência dos arquivos de dados](../referencia/dados.md).
+Este guia é para a base `toy`, em `data/`. A base `large` é gerada por script — para mudá-la, veja
+[Como usar a base grande](como-usar-a-base-grande.md). Os modelos são treinados a cada execução,
+então basta editar os CSVs e rodar de novo. Formato de cada coluna: [Referência dos arquivos de dados](../referencia/dados.md).
 
 Depois de qualquer alteração, rode `uv run pytest`. Alguns testes verificam rankings específicos
 dos dados atuais (ex.: "Osteria del Porto em 1º para u1"); se você mudou dados de propósito,
@@ -12,8 +13,11 @@ ajuste esses testes.
 1. Acrescente uma linha em `data/dishes.csv`. Use os vocabulários de `protein`, `sauce` e
    `intensity`; em `suitable_for`, liste só as restrições que o prato realmente atende.
 
+   Preencha também `ingredients` (lista legível, separada por `;`) e `price_brl` (preço em reais,
+   inteiro):
+
    ```csv
-   Nhoque ao sugo,italiana,vegetal,tomate,leve,massa;batata;tomate;manjericão,vegetariano
+   Nhoque ao sugo,italiana,vegetal,tomate,leve,massa;batata;tomate;manjericão,vegetariano,nhoque de batata;molho de tomate;manjericão;parmesão,48
    ```
 
 2. Acrescente de 2 a 4 linhas em `data/wine_orders.csv` com os vinhos que costumam ser pedidos
@@ -33,14 +37,16 @@ ajuste esses testes.
 
 ## Adicionar um vinho
 
-1. Acrescente em `data/wines.csv` (`type`, `body` e `price` dos vocabulários).
+1. Acrescente em `data/wines.csv` (`type`, `body` e `price` dos vocabulários, mais `grape` e o
+   preço da garrafa em `price_brl`).
 2. Acrescente linhas em `data/wine_orders.csv` ligando o vinho a pratos. Um vinho sem nenhum
    pedido só aparece se o modelo inferir afinidade, o que é raro com poucos dados.
 
 ## Adicionar um restaurante
 
 1. Acrescente em `data/restaurants.csv`. A `cuisine` deve ser igual (inclusive acentos) à usada em
-   `dishes.csv`, e `city` igual ao que será passado em `--city`.
+   `dishes.csv`, `city` igual ao que será passado em `--city`, e `avg_ticket_brl` é o ticket médio
+   por pessoa em reais.
 2. Acrescente notas em `data/ratings.csv`. Sem notas, o restaurante aparece com a média global de
    todas as notas e com aviso de fallback.
 

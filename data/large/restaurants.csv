@@ -1,0 +1,405 @@
+name,cuisine,city,neighborhood,price,avg_ticket_brl
+Ristorante Sapori,italiana,São Paulo,Bixiga,media,97
+Trattoria Sapori,italiana,São Paulo,Liberdade,baixa,78
+Osteria del Porto,italiana,São Paulo,Pinheiros,baixa,76
+Ristorante Il Giardino,italiana,São Paulo,Jardins,baixa,45
+Ristorante Il Giardino Bixiga,italiana,São Paulo,Bixiga,media,123
+Cantina da Nonna,italiana,São Paulo,Jardins,baixa,48
+Temaki Hana,japonesa,São Paulo,Vila Madalena,alta,198
+Temaki Yuzu,japonesa,São Paulo,Pinheiros,alta,205
+Izakaya Yuzu,japonesa,São Paulo,Pinheiros,baixa,62
+Izakaya Hana,japonesa,São Paulo,Pinheiros,baixa,68
+Restaurante Yuzu,japonesa,São Paulo,Moema,alta,347
+Sushi Koi,japonesa,São Paulo,Liberdade,alta,256
+Sushi Kaze,japonesa,São Paulo,Itaim Bibi,baixa,46
+Izakaya Hana Itaim Bibi,japonesa,São Paulo,Itaim Bibi,baixa,53
+Restaurante Kaze,japonesa,São Paulo,Itaim Bibi,media,123
+Temaki Hana Liberdade,japonesa,São Paulo,Liberdade,alta,193
+Cozinha Mineira,brasileira,São Paulo,Bixiga,baixa,48
+Cozinha da Vó,brasileira,São Paulo,Itaim Bibi,media,160
+Empório Raiz,brasileira,São Paulo,Itaim Bibi,baixa,44
+Casa Raiz,brasileira,São Paulo,Itaim Bibi,baixa,63
+Casa Baiana,brasileira,São Paulo,Liberdade,baixa,59
+Boteco do Sertão,brasileira,São Paulo,Vila Madalena,baixa,55
+Boteco do Sertão Itaim Bibi,brasileira,São Paulo,Itaim Bibi,alta,284
+Parrilla Patagonia,argentina,São Paulo,Itaim Bibi,alta,225
+Parrilla Patagonia Bixiga,argentina,São Paulo,Bixiga,media,132
+Asador Patagonia,argentina,São Paulo,Moema,baixa,46
+Parrilla El Gaucho,argentina,São Paulo,Bixiga,baixa,69
+Asador Patagonia Vila Madalena,argentina,São Paulo,Vila Madalena,baixa,52
+Asador La Boca,argentina,São Paulo,Bixiga,alta,251
+Bodegón Mendoza,argentina,São Paulo,Vila Madalena,media,158
+Parrilla Buenos Aires,argentina,São Paulo,Vila Madalena,alta,246
+Bodegón La Boca,argentina,São Paulo,Jardins,baixa,78
+Asador La Boca Bixiga,argentina,São Paulo,Bixiga,media,155
+Asador Mendoza,argentina,São Paulo,Pinheiros,baixa,42
+Asador Buenos Aires,argentina,São Paulo,Itaim Bibi,media,158
+Maison Lumière,francesa,São Paulo,Itaim Bibi,media,98
+Brasserie Montmartre,francesa,São Paulo,Itaim Bibi,baixa,47
+Brasserie Montmartre Itaim Bibi,francesa,São Paulo,Itaim Bibi,baixa,66
+Brasserie Provence,francesa,São Paulo,Vila Madalena,media,114
+Maison Saint-Germain,francesa,São Paulo,Bixiga,media,112
+Maison Provence,francesa,São Paulo,Liberdade,media,90
+Brasserie Lumière,francesa,São Paulo,Vila Madalena,media,131
+Brasserie Saint-Germain,francesa,São Paulo,Bixiga,media,155
+Maison Lumière Bixiga,francesa,São Paulo,Bixiga,media,126
+Maison Montmartre,francesa,São Paulo,Liberdade,media,120
+Taquería La Catrina,mexicana,São Paulo,Jardins,baixa,55
+Cocina El Sol,mexicana,São Paulo,Bixiga,media,114
+Cocina Frida,mexicana,São Paulo,Itaim Bibi,media,121
+Cocina El Sol Jardins,mexicana,São Paulo,Jardins,alta,207
+Cantina La Catrina,mexicana,São Paulo,Moema,baixa,73
+Taquería Azteca,mexicana,São Paulo,Bixiga,baixa,47
+Taquería Frida,mexicana,São Paulo,Bixiga,media,130
+Cantina Azteca,mexicana,São Paulo,Moema,alta,309
+Cocina Frida Bixiga,mexicana,São Paulo,Bixiga,alta,301
+Cantina La Catrina Bixiga,mexicana,São Paulo,Bixiga,alta,250
+Casa Damasco,árabe,São Paulo,Liberdade,baixa,44
+Casa Damasco Itaim Bibi,árabe,São Paulo,Itaim Bibi,baixa,60
+Empório Damasco,árabe,São Paulo,Liberdade,baixa,64
+Empório Damasco Itaim Bibi,árabe,São Paulo,Itaim Bibi,baixa,66
+Restaurante Aladin,árabe,São Paulo,Vila Madalena,media,116
+Casa Aladin,árabe,São Paulo,Moema,alta,329
+Empório Al Manara,árabe,São Paulo,Itaim Bibi,media,90
+Casa Aladin Vila Madalena,árabe,São Paulo,Vila Madalena,alta,287
+Restaurante Al Manara,árabe,São Paulo,Liberdade,alta,236
+Empório Cedro,árabe,São Paulo,Bixiga,media,93
+Casa Aladin Bixiga,árabe,São Paulo,Bixiga,media,149
+Curry House Taj,indiana,São Paulo,Liberdade,alta,331
+Curry House Taj Liberdade,indiana,São Paulo,Liberdade,baixa,67
+Casa Masala,indiana,São Paulo,Jardins,baixa,64
+Restaurante Ganesha,indiana,São Paulo,Vila Madalena,baixa,64
+Casa Jaipur,indiana,São Paulo,Vila Madalena,alta,300
+Curry House Bombay,indiana,São Paulo,Pinheiros,baixa,62
+Curry House Taj Jardins,indiana,São Paulo,Jardins,alta,346
+Restaurante Masala,indiana,São Paulo,Pinheiros,baixa,41
+Restaurante Masala Liberdade,indiana,São Paulo,Liberdade,baixa,47
+Restaurante Ganesha Liberdade,indiana,São Paulo,Liberdade,media,137
+Curry House Bombay Jardins,indiana,São Paulo,Jardins,alta,209
+Restaurante Jaipur,indiana,São Paulo,Moema,baixa,41
+Cozinha Chiang Mai,tailandesa,São Paulo,Liberdade,media,115
+Cozinha Lotus,tailandesa,São Paulo,Pinheiros,baixa,59
+Cozinha Orchid,tailandesa,São Paulo,Moema,alta,324
+Thai Siam,tailandesa,São Paulo,Moema,media,137
+Cozinha Siam,tailandesa,São Paulo,Pinheiros,baixa,66
+Restaurante Bangkok,tailandesa,São Paulo,Moema,media,136
+Restaurante Lotus,tailandesa,São Paulo,Itaim Bibi,media,156
+Restaurante Orchid,tailandesa,São Paulo,Itaim Bibi,alta,317
+Restaurante Chiang Mai,tailandesa,São Paulo,Moema,media,124
+Thai Bangkok,tailandesa,São Paulo,Vila Madalena,baixa,68
+Restaurante Orchid Jardins,tailandesa,São Paulo,Jardins,media,138
+Thai Chiang Mai,tailandesa,São Paulo,Vila Madalena,alta,226
+Casa Xangai,chinesa,São Paulo,Vila Madalena,baixa,78
+Casa Jade,chinesa,São Paulo,Itaim Bibi,baixa,52
+Restaurante Pequim,chinesa,São Paulo,Pinheiros,media,120
+Casa Pequim,chinesa,São Paulo,Itaim Bibi,media,92
+Casa Imperial,chinesa,São Paulo,Pinheiros,media,121
+Dragão Jade,chinesa,São Paulo,Vila Madalena,media,160
+Casa Pequim Liberdade,chinesa,São Paulo,Liberdade,alta,320
+Casa Pequim Vila Madalena,chinesa,São Paulo,Vila Madalena,baixa,56
+Restaurante Imperial,chinesa,São Paulo,Jardins,baixa,74
+Cevichería Cusco,peruana,São Paulo,Itaim Bibi,baixa,70
+Restaurante Andino,peruana,São Paulo,Vila Madalena,alta,314
+Cocina Lima,peruana,São Paulo,Liberdade,alta,255
+Cocina Cusco,peruana,São Paulo,Jardins,baixa,74
+Cocina Lima Jardins,peruana,São Paulo,Jardins,alta,321
+Restaurante Cusco,peruana,São Paulo,Vila Madalena,media,152
+Cevichería Andino,peruana,São Paulo,Pinheiros,baixa,70
+Cocina Cusco Bixiga,peruana,São Paulo,Bixiga,alta,244
+Cocina Lima Moema,peruana,São Paulo,Moema,alta,282
+Cevichería Andino Bixiga,peruana,São Paulo,Bixiga,media,96
+Cevichería Andino Jardins,peruana,São Paulo,Jardins,alta,201
+Cevichería Andino Jardins 2,peruana,São Paulo,Jardins,media,118
+Bodega Andaluz,espanhola,São Paulo,Bixiga,baixa,77
+Bodega Galicia,espanhola,São Paulo,Bixiga,media,102
+Tasca Madrid,espanhola,São Paulo,Moema,baixa,45
+Tasca Madrid Jardins,espanhola,São Paulo,Jardins,media,110
+Bodega Andaluz Pinheiros,espanhola,São Paulo,Pinheiros,media,150
+Tasca Madrid Vila Madalena,espanhola,São Paulo,Vila Madalena,baixa,58
+Bodega Sevilla,espanhola,São Paulo,Itaim Bibi,media,123
+Taberna Galicia,espanhola,São Paulo,Moema,media,115
+Tasca Galicia,espanhola,São Paulo,Bixiga,baixa,49
+Tasca Sevilla,espanhola,São Paulo,Vila Madalena,baixa,59
+Taberna Galicia Liberdade,espanhola,São Paulo,Liberdade,alta,292
+Cantina Vecchia Roma,italiana,Rio de Janeiro,Lapa,media,124
+Ristorante del Porto,italiana,Rio de Janeiro,Barra da Tijuca,media,95
+Cantina Il Giardino,italiana,Rio de Janeiro,Copacabana,baixa,45
+Ristorante Il Giardino Botafogo,italiana,Rio de Janeiro,Botafogo,alta,248
+Temaki Yuzu Botafogo,japonesa,Rio de Janeiro,Botafogo,media,125
+Temaki Koi,japonesa,Rio de Janeiro,Botafogo,alta,203
+Restaurante Kyoto,japonesa,Rio de Janeiro,Copacabana,baixa,46
+Restaurante Kyoto Botafogo,japonesa,Rio de Janeiro,Botafogo,media,126
+Temaki Yuzu Lapa,japonesa,Rio de Janeiro,Lapa,baixa,45
+Restaurante Hana,japonesa,Rio de Janeiro,Santa Teresa,baixa,65
+Empório Baiana,brasileira,Rio de Janeiro,Leblon,baixa,73
+Empório Caipira,brasileira,Rio de Janeiro,Santa Teresa,media,96
+Cozinha Raiz,brasileira,Rio de Janeiro,Botafogo,baixa,58
+Empório Mineira,brasileira,Rio de Janeiro,Copacabana,baixa,80
+Casa Caipira,brasileira,Rio de Janeiro,Barra da Tijuca,baixa,75
+Empório Mineira Leblon,brasileira,Rio de Janeiro,Leblon,baixa,47
+Boteco Caipira,brasileira,Rio de Janeiro,Copacabana,alta,307
+Bodegón La Boca Santa Teresa,argentina,Rio de Janeiro,Santa Teresa,media,151
+Parrilla El Gaucho Copacabana,argentina,Rio de Janeiro,Copacabana,media,139
+Bodegón Mendoza Botafogo,argentina,Rio de Janeiro,Botafogo,media,107
+Asador El Gaucho,argentina,Rio de Janeiro,Leblon,media,154
+Parrilla La Boca,argentina,Rio de Janeiro,Santa Teresa,media,152
+Asador Mendoza Botafogo,argentina,Rio de Janeiro,Botafogo,media,132
+Bodegón El Gaucho,argentina,Rio de Janeiro,Barra da Tijuca,media,131
+Bodegón Patagonia,argentina,Rio de Janeiro,Botafogo,media,119
+Bistrô Provence,francesa,Rio de Janeiro,Copacabana,media,138
+Maison Lumière Copacabana,francesa,Rio de Janeiro,Copacabana,media,94
+Maison Montmartre Botafogo,francesa,Rio de Janeiro,Botafogo,baixa,46
+Bistrô Montmartre,francesa,Rio de Janeiro,Copacabana,alta,183
+Bistrô Saint-Germain,francesa,Rio de Janeiro,Lapa,alta,219
+Brasserie Provence Leblon,francesa,Rio de Janeiro,Leblon,media,140
+Bistrô Provence Lapa,francesa,Rio de Janeiro,Lapa,alta,316
+Cocina Frida Santa Teresa,mexicana,Rio de Janeiro,Santa Teresa,alta,189
+Taquería La Catrina Barra da Tijuca,mexicana,Rio de Janeiro,Barra da Tijuca,media,126
+Cocina El Sol Botafogo,mexicana,Rio de Janeiro,Botafogo,media,102
+Cocina El Sol Lapa,mexicana,Rio de Janeiro,Lapa,media,128
+Taquería Oaxaca,mexicana,Rio de Janeiro,Leblon,alta,255
+Cantina Frida,mexicana,Rio de Janeiro,Santa Teresa,baixa,73
+Empório Damasco Lapa,árabe,Rio de Janeiro,Lapa,baixa,79
+Restaurante Damasco,árabe,Rio de Janeiro,Copacabana,media,108
+Casa Cedro,árabe,Rio de Janeiro,Botafogo,media,91
+Casa Al Manara,árabe,Rio de Janeiro,Copacabana,baixa,68
+Restaurante Cedro,árabe,Rio de Janeiro,Santa Teresa,media,144
+Casa Aladin Lapa,árabe,Rio de Janeiro,Lapa,alta,230
+Restaurante Masala Copacabana,indiana,Rio de Janeiro,Copacabana,media,135
+Casa Jaipur Barra da Tijuca,indiana,Rio de Janeiro,Barra da Tijuca,baixa,65
+Restaurante Bombay,indiana,Rio de Janeiro,Santa Teresa,alta,192
+Curry House Ganesha,indiana,Rio de Janeiro,Barra da Tijuca,alta,253
+Curry House Jaipur,indiana,Rio de Janeiro,Botafogo,baixa,52
+Casa Masala Barra da Tijuca,indiana,Rio de Janeiro,Barra da Tijuca,media,95
+Casa Taj,indiana,Rio de Janeiro,Santa Teresa,media,106
+Casa Jaipur Leblon,indiana,Rio de Janeiro,Leblon,media,112
+Restaurante Orchid Barra da Tijuca,tailandesa,Rio de Janeiro,Barra da Tijuca,media,124
+Restaurante Chiang Mai Botafogo,tailandesa,Rio de Janeiro,Botafogo,alta,255
+Restaurante Bangkok Lapa,tailandesa,Rio de Janeiro,Lapa,media,99
+Thai Chiang Mai Botafogo,tailandesa,Rio de Janeiro,Botafogo,alta,322
+Thai Chiang Mai Santa Teresa,tailandesa,Rio de Janeiro,Santa Teresa,baixa,74
+Dragão Xangai,chinesa,Rio de Janeiro,Santa Teresa,media,137
+Dragão Imperial,chinesa,Rio de Janeiro,Leblon,media,131
+Restaurante Dourado,chinesa,Rio de Janeiro,Barra da Tijuca,media,149
+Casa Pequim Lapa,chinesa,Rio de Janeiro,Lapa,baixa,42
+Cocina Lima Santa Teresa,peruana,Rio de Janeiro,Santa Teresa,baixa,74
+Cocina Pacífico,peruana,Rio de Janeiro,Botafogo,media,159
+Restaurante Cusco Copacabana,peruana,Rio de Janeiro,Copacabana,alta,347
+Cocina Andino,peruana,Rio de Janeiro,Leblon,media,125
+Restaurante Inca,peruana,Rio de Janeiro,Leblon,baixa,68
+Cocina Lima Botafogo,peruana,Rio de Janeiro,Botafogo,alta,274
+Restaurante Inca Barra da Tijuca,peruana,Rio de Janeiro,Barra da Tijuca,baixa,57
+Cevichería Pacífico,peruana,Rio de Janeiro,Botafogo,baixa,53
+Tasca Sevilla Barra da Tijuca,espanhola,Rio de Janeiro,Barra da Tijuca,alta,242
+Taberna Madrid,espanhola,Rio de Janeiro,Botafogo,baixa,75
+Taberna Madrid Botafogo,espanhola,Rio de Janeiro,Botafogo,alta,239
+Tasca Galicia Santa Teresa,espanhola,Rio de Janeiro,Santa Teresa,baixa,49
+Taberna Barcelona,espanhola,Rio de Janeiro,Botafogo,alta,208
+Tasca Madrid Lapa,espanhola,Rio de Janeiro,Lapa,baixa,55
+Bodega Sevilla Barra da Tijuca,espanhola,Rio de Janeiro,Barra da Tijuca,baixa,43
+Ristorante Bella,italiana,Belo Horizonte,Funcionários,media,150
+Cantina Il Giardino Funcionários,italiana,Belo Horizonte,Funcionários,media,147
+Restaurante Kyoto Savassi,japonesa,Belo Horizonte,Savassi,media,93
+Temaki Kyoto,japonesa,Belo Horizonte,Savassi,media,103
+Temaki Sakura,japonesa,Belo Horizonte,Funcionários,alta,262
+Casa do Sertão,brasileira,Belo Horizonte,Savassi,media,160
+Empório Raiz Santa Tereza,brasileira,Belo Horizonte,Santa Tereza,media,148
+Boteco Caipira Funcionários,brasileira,Belo Horizonte,Funcionários,baixa,75
+Asador El Gaucho Lourdes,argentina,Belo Horizonte,Lourdes,alta,285
+Asador El Gaucho Santa Tereza,argentina,Belo Horizonte,Santa Tereza,media,102
+Asador La Boca Santa Tereza,argentina,Belo Horizonte,Santa Tereza,media,137
+Bistrô Le Petit,francesa,Belo Horizonte,Funcionários,alta,203
+Bistrô Provence Funcionários,francesa,Belo Horizonte,Funcionários,alta,322
+Maison Montmartre Savassi,francesa,Belo Horizonte,Savassi,media,105
+Brasserie Saint-Germain Funcionários,francesa,Belo Horizonte,Funcionários,alta,193
+Cantina El Sol,mexicana,Belo Horizonte,Santa Tereza,media,117
+Cocina Frida Lourdes,mexicana,Belo Horizonte,Lourdes,baixa,46
+Cocina Oaxaca,mexicana,Belo Horizonte,Santa Tereza,baixa,57
+Cantina Azteca Lourdes,mexicana,Belo Horizonte,Lourdes,alta,339
+Restaurante Cedro Savassi,árabe,Belo Horizonte,Savassi,baixa,57
+Casa Cedro Santa Tereza,árabe,Belo Horizonte,Santa Tereza,baixa,49
+Empório Damasco Funcionários,árabe,Belo Horizonte,Funcionários,media,93
+Casa Ganesha,indiana,Belo Horizonte,Lourdes,media,110
+Casa Jaipur Santa Tereza,indiana,Belo Horizonte,Santa Tereza,media,100
+Thai Orchid,tailandesa,Belo Horizonte,Lourdes,baixa,45
+Restaurante Chiang Mai Santa Tereza,tailandesa,Belo Horizonte,Santa Tereza,media,146
+Restaurante Lotus Funcionários,tailandesa,Belo Horizonte,Funcionários,media,104
+Restaurante Bangkok Santa Tereza,tailandesa,Belo Horizonte,Santa Tereza,baixa,77
+Restaurante Imperial Santa Tereza,chinesa,Belo Horizonte,Santa Tereza,media,97
+Restaurante Xangai,chinesa,Belo Horizonte,Savassi,alta,215
+Casa Xangai Santa Tereza,chinesa,Belo Horizonte,Santa Tereza,baixa,71
+Cevichería Pacífico Lourdes,peruana,Belo Horizonte,Lourdes,media,119
+Cevichería Pacífico Santa Tereza,peruana,Belo Horizonte,Santa Tereza,alta,190
+Cevichería Pacífico Funcionários,peruana,Belo Horizonte,Funcionários,alta,260
+Taberna Andaluz,espanhola,Belo Horizonte,Funcionários,baixa,65
+Bodega Madrid,espanhola,Belo Horizonte,Savassi,alta,338
+Taberna Barcelona Funcionários,espanhola,Belo Horizonte,Funcionários,baixa,46
+Ristorante Bella Água Verde,italiana,Curitiba,Água Verde,media,129
+Osteria Toscana,italiana,Curitiba,Santa Felicidade,alta,199
+Izakaya Hana Batel,japonesa,Curitiba,Batel,media,108
+Sushi Kaze Centro,japonesa,Curitiba,Centro,baixa,51
+Sushi Kaze Centro 2,japonesa,Curitiba,Centro,alta,340
+Cozinha Caipira,brasileira,Curitiba,Água Verde,baixa,68
+Empório Baiana Batel,brasileira,Curitiba,Batel,media,125
+Cozinha Raiz Batel,brasileira,Curitiba,Batel,baixa,69
+Asador La Boca Batel,argentina,Curitiba,Batel,baixa,45
+Asador Mendoza Água Verde,argentina,Curitiba,Água Verde,media,95
+Bodegón Patagonia Água Verde,argentina,Curitiba,Água Verde,baixa,70
+Brasserie Le Petit,francesa,Curitiba,Batel,alta,267
+Maison Lumière Batel,francesa,Curitiba,Batel,baixa,68
+Maison Montmartre Água Verde,francesa,Curitiba,Água Verde,media,136
+Cantina Frida Santa Felicidade,mexicana,Curitiba,Santa Felicidade,media,96
+Taquería Oaxaca Santa Felicidade,mexicana,Curitiba,Santa Felicidade,baixa,64
+Cantina Azteca Santa Felicidade,mexicana,Curitiba,Santa Felicidade,alta,265
+Casa Cedro Centro,árabe,Curitiba,Centro,alta,349
+Empório Al Manara Água Verde,árabe,Curitiba,Água Verde,media,100
+Curry House Jaipur Água Verde,indiana,Curitiba,Água Verde,alta,314
+Curry House Ganesha Batel,indiana,Curitiba,Batel,media,92
+Casa Masala Santa Felicidade,indiana,Curitiba,Santa Felicidade,alta,267
+Thai Lotus,tailandesa,Curitiba,Água Verde,alta,219
+Restaurante Bangkok Batel,tailandesa,Curitiba,Batel,media,159
+Cozinha Siam Batel,tailandesa,Curitiba,Batel,alta,338
+Cozinha Chiang Mai Centro,tailandesa,Curitiba,Centro,baixa,51
+Dragão Pequim,chinesa,Curitiba,Centro,baixa,63
+Casa Jade Centro,chinesa,Curitiba,Centro,baixa,68
+Dragão Imperial Centro,chinesa,Curitiba,Centro,baixa,70
+Casa Jade Centro 2,chinesa,Curitiba,Centro,alta,298
+Restaurante Andino Água Verde,peruana,Curitiba,Água Verde,media,110
+Restaurante Cusco Centro,peruana,Curitiba,Centro,alta,193
+Cocina Andino Água Verde,peruana,Curitiba,Água Verde,alta,312
+Cocina Lima Batel,peruana,Curitiba,Batel,media,124
+Bodega Sevilla Centro,espanhola,Curitiba,Centro,alta,236
+Bodega Sevilla Água Verde,espanhola,Curitiba,Água Verde,media,140
+Tasca Andaluz,espanhola,Curitiba,Santa Felicidade,alta,275
+Trattoria Sapori Bom Fim,italiana,Porto Alegre,Bom Fim,media,132
+Osteria Bella,italiana,Porto Alegre,Cidade Baixa,baixa,70
+Temaki Kyoto Cidade Baixa,japonesa,Porto Alegre,Cidade Baixa,media,100
+Restaurante Kaze Moinhos de Vento,japonesa,Porto Alegre,Moinhos de Vento,alta,320
+Sushi Hana,japonesa,Porto Alegre,Menino Deus,baixa,47
+Empório Mineira Menino Deus,brasileira,Porto Alegre,Menino Deus,baixa,71
+Casa Caipira Moinhos de Vento,brasileira,Porto Alegre,Moinhos de Vento,baixa,67
+Parrilla Mendoza,argentina,Porto Alegre,Bom Fim,media,100
+Parrilla Mendoza Bom Fim,argentina,Porto Alegre,Bom Fim,media,154
+Brasserie Le Petit Menino Deus,francesa,Porto Alegre,Menino Deus,media,137
+Maison Le Petit,francesa,Porto Alegre,Bom Fim,media,98
+Bistrô Le Petit Bom Fim,francesa,Porto Alegre,Bom Fim,media,132
+Cocina Oaxaca Bom Fim,mexicana,Porto Alegre,Bom Fim,alta,224
+Cocina Frida Menino Deus,mexicana,Porto Alegre,Menino Deus,media,107
+Empório Cedro Menino Deus,árabe,Porto Alegre,Menino Deus,baixa,52
+Casa Cedro Moinhos de Vento,árabe,Porto Alegre,Moinhos de Vento,media,159
+Curry House Masala,indiana,Porto Alegre,Moinhos de Vento,baixa,43
+Casa Taj Bom Fim,indiana,Porto Alegre,Bom Fim,alta,291
+Curry House Ganesha Menino Deus,indiana,Porto Alegre,Menino Deus,alta,278
+Restaurante Chiang Mai Cidade Baixa,tailandesa,Porto Alegre,Cidade Baixa,media,156
+Thai Chiang Mai Bom Fim,tailandesa,Porto Alegre,Bom Fim,baixa,78
+Cozinha Siam Cidade Baixa,tailandesa,Porto Alegre,Cidade Baixa,baixa,45
+Casa Pequim Bom Fim,chinesa,Porto Alegre,Bom Fim,media,144
+Dragão Pequim Cidade Baixa,chinesa,Porto Alegre,Cidade Baixa,media,95
+Dragão Pequim Bom Fim,chinesa,Porto Alegre,Bom Fim,baixa,43
+Cocina Andino Menino Deus,peruana,Porto Alegre,Menino Deus,alta,220
+Cevichería Andino Moinhos de Vento,peruana,Porto Alegre,Moinhos de Vento,media,146
+Tasca Barcelona,espanhola,Porto Alegre,Moinhos de Vento,media,94
+Taberna Andaluz Cidade Baixa,espanhola,Porto Alegre,Cidade Baixa,alta,275
+Ristorante da Nonna,italiana,Salvador,Rio Vermelho,media,140
+Cantina da Nonna Pelourinho,italiana,Salvador,Pelourinho,alta,186
+Forneria Il Giardino,italiana,Salvador,Barra,media,105
+Temaki Kaze,japonesa,Salvador,Pelourinho,alta,253
+Izakaya Sakura,japonesa,Salvador,Pituba,baixa,44
+Izakaya Koi,japonesa,Salvador,Pituba,media,101
+Cozinha Caipira Pelourinho,brasileira,Salvador,Pelourinho,baixa,74
+Cozinha da Vó Pelourinho,brasileira,Salvador,Pelourinho,media,112
+Casa Mineira,brasileira,Salvador,Pelourinho,alta,215
+Empório Mineira Barra,brasileira,Salvador,Barra,media,137
+Bodegón Buenos Aires,argentina,Salvador,Barra,baixa,65
+Bodegón El Gaucho Pituba,argentina,Salvador,Pituba,media,99
+Asador Buenos Aires Barra,argentina,Salvador,Barra,media,156
+Bistrô Saint-Germain Barra,francesa,Salvador,Barra,media,97
+Maison Lumière Rio Vermelho,francesa,Salvador,Rio Vermelho,baixa,50
+Maison Lumière Pelourinho,francesa,Salvador,Pelourinho,media,156
+Cantina La Catrina Rio Vermelho,mexicana,Salvador,Rio Vermelho,media,160
+Taquería Oaxaca Pelourinho,mexicana,Salvador,Pelourinho,media,101
+Cocina Azteca,mexicana,Salvador,Barra,baixa,79
+Cocina El Sol Pelourinho,mexicana,Salvador,Pelourinho,alta,187
+Restaurante Damasco Pelourinho,árabe,Salvador,Pelourinho,media,143
+Casa Al Manara Rio Vermelho,árabe,Salvador,Rio Vermelho,baixa,59
+Casa Ganesha Pituba,indiana,Salvador,Pituba,baixa,43
+Casa Ganesha Barra,indiana,Salvador,Barra,media,116
+Curry House Masala Pelourinho,indiana,Salvador,Pelourinho,baixa,60
+Restaurante Lotus Pelourinho,tailandesa,Salvador,Pelourinho,media,155
+Restaurante Lotus Rio Vermelho,tailandesa,Salvador,Rio Vermelho,media,124
+Thai Lotus Pituba,tailandesa,Salvador,Pituba,baixa,58
+Restaurante Imperial Pituba,chinesa,Salvador,Pituba,alta,327
+Restaurante Imperial Pelourinho,chinesa,Salvador,Pelourinho,media,155
+Casa Xangai Pituba,chinesa,Salvador,Pituba,media,101
+Dragão Pequim Pituba,chinesa,Salvador,Pituba,alta,235
+Cevichería Inca,peruana,Salvador,Rio Vermelho,media,150
+Restaurante Lima,peruana,Salvador,Pelourinho,alta,290
+Cocina Inca,peruana,Salvador,Barra,media,136
+Taberna Galicia Rio Vermelho,espanhola,Salvador,Rio Vermelho,baixa,75
+Tasca Andaluz Pelourinho,espanhola,Salvador,Pelourinho,media,160
+Osteria Bella Boa Viagem,italiana,Recife,Boa Viagem,media,133
+Osteria da Nonna,italiana,Recife,Recife Antigo,media,141
+Trattoria Bella,italiana,Recife,Boa Viagem,baixa,61
+Izakaya Yuzu Espinheiro,japonesa,Recife,Espinheiro,alta,215
+Restaurante Kaze Recife Antigo,japonesa,Recife,Recife Antigo,media,128
+Temaki Koi Recife Antigo,japonesa,Recife,Recife Antigo,media,150
+Restaurante Hana Boa Viagem,japonesa,Recife,Boa Viagem,media,143
+Empório do Sertão,brasileira,Recife,Boa Viagem,alta,328
+Boteco Raiz,brasileira,Recife,Casa Forte,media,157
+Casa Caipira Espinheiro,brasileira,Recife,Espinheiro,baixa,76
+Parrilla Buenos Aires Boa Viagem,argentina,Recife,Boa Viagem,media,143
+Asador Patagonia Casa Forte,argentina,Recife,Casa Forte,media,150
+Bodegón Patagonia Boa Viagem,argentina,Recife,Boa Viagem,media,131
+Bodegón El Gaucho Espinheiro,argentina,Recife,Espinheiro,baixa,51
+Maison Provence Recife Antigo,francesa,Recife,Recife Antigo,media,123
+Bistrô Lumière,francesa,Recife,Espinheiro,baixa,59
+Brasserie Provence Casa Forte,francesa,Recife,Casa Forte,media,152
+Cocina Oaxaca Recife Antigo,mexicana,Recife,Recife Antigo,baixa,76
+Cantina Oaxaca,mexicana,Recife,Espinheiro,alta,217
+Taquería Oaxaca Recife Antigo,mexicana,Recife,Recife Antigo,alta,200
+Restaurante Cedro Espinheiro,árabe,Recife,Espinheiro,media,117
+Restaurante Cedro Casa Forte,árabe,Recife,Casa Forte,alta,249
+Empório Al Manara Casa Forte,árabe,Recife,Casa Forte,media,120
+Curry House Masala Casa Forte,indiana,Recife,Casa Forte,baixa,66
+Curry House Ganesha Recife Antigo,indiana,Recife,Recife Antigo,baixa,48
+Restaurante Chiang Mai Casa Forte,tailandesa,Recife,Casa Forte,media,115
+Restaurante Siam,tailandesa,Recife,Recife Antigo,media,101
+Dragão Dourado,chinesa,Recife,Casa Forte,alta,224
+Restaurante Dourado Espinheiro,chinesa,Recife,Espinheiro,alta,281
+Restaurante Xangai Espinheiro,chinesa,Recife,Espinheiro,alta,182
+Cocina Inca Boa Viagem,peruana,Recife,Boa Viagem,media,159
+Cevichería Andino Espinheiro,peruana,Recife,Espinheiro,media,114
+Cocina Cusco Boa Viagem,peruana,Recife,Boa Viagem,media,122
+Taberna Barcelona Boa Viagem,espanhola,Recife,Boa Viagem,alta,325
+Tasca Galicia Casa Forte,espanhola,Recife,Casa Forte,alta,283
+Taberna Barcelona Espinheiro,espanhola,Recife,Espinheiro,baixa,46
+Forneria Toscana,italiana,Brasília,Asa Norte,alta,181
+Forneria da Nonna,italiana,Brasília,Lago Sul,media,124
+Sushi Hana Lago Sul,japonesa,Brasília,Lago Sul,media,120
+Sushi Kyoto,japonesa,Brasília,Asa Sul,baixa,65
+Sushi Koi Lago Sul,japonesa,Brasília,Lago Sul,alta,255
+Izakaya Kaze,japonesa,Brasília,Lago Sul,alta,302
+Empório Caipira Lago Sul,brasileira,Brasília,Lago Sul,media,150
+Casa Caipira Asa Norte,brasileira,Brasília,Asa Norte,media,100
+Parrilla Mendoza Lago Sul,argentina,Brasília,Lago Sul,baixa,75
+Bodegón Mendoza Asa Norte,argentina,Brasília,Asa Norte,baixa,60
+Parrilla Patagonia Sudoeste,argentina,Brasília,Sudoeste,media,152
+Bistrô Saint-Germain Sudoeste,francesa,Brasília,Sudoeste,baixa,66
+Maison Le Petit Sudoeste,francesa,Brasília,Sudoeste,media,129
+Cantina El Sol Sudoeste,mexicana,Brasília,Sudoeste,media,99
+Cantina Oaxaca Asa Sul,mexicana,Brasília,Asa Sul,media,159
+Taquería Frida Asa Sul,mexicana,Brasília,Asa Sul,baixa,66
+Restaurante Aladin Asa Norte,árabe,Brasília,Asa Norte,media,138
+Casa Aladin Sudoeste,árabe,Brasília,Sudoeste,baixa,74
+Restaurante Masala Lago Sul,indiana,Brasília,Lago Sul,alta,280
+Curry House Masala Asa Norte,indiana,Brasília,Asa Norte,alta,185
+Cozinha Orchid Sudoeste,tailandesa,Brasília,Sudoeste,media,138
+Thai Chiang Mai Asa Norte,tailandesa,Brasília,Asa Norte,media,125
+Cozinha Bangkok,tailandesa,Brasília,Asa Norte,baixa,66
+Thai Lotus Asa Sul,tailandesa,Brasília,Asa Sul,baixa,78
+Restaurante Dourado Asa Sul,chinesa,Brasília,Asa Sul,media,119
+Restaurante Imperial Asa Norte,chinesa,Brasília,Asa Norte,media,127
+Restaurante Andino Lago Sul,peruana,Brasília,Lago Sul,media,131
+Cocina Cusco Asa Norte,peruana,Brasília,Asa Norte,alta,313
+Bodega Sevilla Lago Sul,espanhola,Brasília,Lago Sul,media,112
+Taberna Andaluz Sudoeste,espanhola,Brasília,Sudoeste,baixa,62

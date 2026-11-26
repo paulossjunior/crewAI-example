@@ -28,11 +28,12 @@ uv run pytest
 Você deve ver algo como:
 
 ```text
-................................                                         [100%]
-32 passed in 3.61s
+........................................................                 [100%]
+56 passed in 12.74s
 ```
 
-Os testes treinam os três modelos com os dados de `data/` e não acessam a internet.
+Os testes treinam os três modelos com as duas bases (`data/` e `data/large/`) e não acessam a
+internet.
 
 ## 3. Peça um jantar como usuário novo
 
@@ -122,9 +123,10 @@ Rode sem `--dry-run`:
 uv run dinner-crew --prefs "massa,tomate" --user u1
 ```
 
-Depois de alguns segundos, você verá um plano em markdown com três seções — `🍽️ Prato`,
-`🍷 Vinho` e `📍 Restaurante` — e, em cada uma, uma linha `**Recomendador:**` dizendo qual
-biblioteca gerou a sugestão.
+Depois de uns 45 segundos, você verá um plano em markdown que começa com `🗣️ Resumo do anfitrião`
+— um parágrafo escrito pelo quarto agente, com os preços e o custo de prato + vinho — seguido das
+seções `🍽️ Prato`, `🍷 Vinho` e `📍 Restaurante`, com ingredientes, uva, preços e uma linha
+`**Recomendador:**` dizendo qual biblioteca gerou cada sugestão.
 
 ## O que você fez
 
@@ -138,3 +140,5 @@ personalização para um usuário conhecido e mudou uma recomendação alterando
 - Veja como as peças se encaixam: [Arquitetura do projeto](../explicacao/arquitetura.md).
 - Adicione seus próprios pratos e restaurantes:
   [Como adicionar dados](../guias/como-adicionar-dados.md).
+- Converse com a crew no navegador: [Como usar a interface](../guias/como-usar-a-interface.md).
+- Teste com volume: [Como usar a base grande](../guias/como-usar-a-base-grande.md).

@@ -1,17 +1,17 @@
-name,type,body,price,notes
-Pinot Noir da Borgonha,tinto,leve,alta,frutas vermelhas e terroso
-Pinot Noir chileno,tinto,leve,baixa,cereja e acidez viva
-Chianti Classico,tinto,medio,media,cereja e ervas secas
-Merlot da Serra Gaúcha,tinto,medio,baixa,ameixa macia
-Malbec de Mendoza,tinto,encorpado,media,amora e taninos firmes
-Tannat uruguaio,tinto,encorpado,media,taninos potentes e especiarias
-Cabernet Sauvignon de Napa,tinto,encorpado,alta,cassis e carvalho
-Sauvignon Blanc chileno,branco,leve,baixa,cítrico e herbáceo
-Albariño,branco,leve,media,salino e floral
-Riesling da Alsácia,branco,leve,media,lima e leve dulçor
-Gewürztraminer,branco,medio,media,lichia e especiarias
-Chardonnay sem madeira,branco,medio,media,maçã verde e mineral
-Chardonnay barricado,branco,encorpado,alta,manteiga e baunilha
-Rosé da Provence,rose,leve,media,morango e seco
-Espumante brut da Serra Gaúcha,espumante,leve,baixa,borbulhas finas e cítrico
-Champagne brut,espumante,leve,alta,brioche e acidez elegante
+name,type,body,price,notes,grape,price_brl
+Pinot Noir da Borgonha,tinto,leve,alta,frutas vermelhas e terroso,Pinot Noir,320
+Pinot Noir chileno,tinto,leve,baixa,cereja e acidez viva,Pinot Noir,69
+Chianti Classico,tinto,medio,media,cereja e ervas secas,Sangiovese,139
+Merlot da Serra Gaúcha,tinto,medio,baixa,ameixa macia,Merlot,59
+Malbec de Mendoza,tinto,encorpado,media,amora e taninos firmes,Malbec,119
+Tannat uruguaio,tinto,encorpado,media,taninos potentes e especiarias,Tannat,129
+Cabernet Sauvignon de Napa,tinto,encorpado,alta,cassis e carvalho,Cabernet Sauvignon,390
+Sauvignon Blanc chileno,branco,leve,baixa,cítrico e herbáceo,Sauvignon Blanc,65
+Albariño,branco,leve,media,salino e floral,Albariño,149
+Riesling da Alsácia,branco,leve,media,lima e leve dulçor,Riesling,159
+Gewürztraminer,branco,medio,media,lichia e especiarias,Gewürztraminer,169
+Chardonnay sem madeira,branco,medio,media,maçã verde e mineral,Chardonnay,109
+Chardonnay barricado,branco,encorpado,alta,manteiga e baunilha,Chardonnay,280
+Rosé da Provence,rose,leve,media,morango e seco,Grenache e Cinsault,145
+Espumante brut da Serra Gaúcha,espumante,leve,baixa,borbulhas finas e cítrico,Chardonnay e Pinot Noir,72
+Champagne brut,espumante,leve,alta,brioche e acidez elegante,Chardonnay e Pinot Noir,420

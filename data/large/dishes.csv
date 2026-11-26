@@ -1,0 +1,177 @@
+name,cuisine,protein,sauce,intensity,tags,suitable_for,ingredients,price_brl
+Risoto de cogumelos,italiana,vegetal,cremoso,media,arroz;parmesão;manteiga;cogumelos,vegetariano;sem_gluten,cogumelos;arroz;parmesão;manteiga,50
+Risoto de abóbora,italiana,vegetal,cremoso,media,arroz;parmesão;manteiga;abóbora,vegetariano;sem_gluten,abóbora;arroz;parmesão;manteiga,41
+Risoto de camarão,italiana,frutos_do_mar,cremoso,media,arroz;parmesão;manteiga;camarão,sem_gluten,camarão;arroz;parmesão;manteiga,72
+Risoto de frango,italiana,ave,cremoso,media,arroz;parmesão;manteiga;frango,sem_gluten,frango;arroz;parmesão;manteiga,61
+Risoto de salmão,italiana,peixe,cremoso,media,arroz;parmesão;manteiga;salmão,sem_gluten,salmão;arroz;parmesão;manteiga,66
+Risoto de linguiça,italiana,porco,cremoso,media,arroz;parmesão;manteiga;linguiça,sem_gluten,linguiça;arroz;parmesão;manteiga,55
+Spaghetti ao sugo com legumes,italiana,vegetal,tomate,leve,massa;tomate;manjericão;azeite;legumes,vegetariano;vegano;sem_lactose,legumes;massa;tomate;manjericão;azeite,43
+Spaghetti ao sugo com berinjela,italiana,vegetal,tomate,leve,massa;tomate;manjericão;azeite;berinjela,vegetariano;vegano;sem_lactose,berinjela;massa;tomate;manjericão;azeite,42
+Spaghetti ao sugo com camarão,italiana,frutos_do_mar,tomate,leve,massa;tomate;manjericão;azeite;camarão,sem_lactose,camarão;massa;tomate;manjericão;azeite,83
+Spaghetti ao sugo com carne,italiana,carne_vermelha,tomate,leve,massa;tomate;manjericão;azeite;carne,sem_lactose,carne;massa;tomate;manjericão;azeite,69
+Spaghetti ao sugo com atum,italiana,peixe,tomate,leve,massa;tomate;manjericão;azeite;atum,sem_lactose,atum;massa;tomate;manjericão;azeite,72
+Lasanha de carne,italiana,carne_vermelha,tomate,intensa,massa;queijo;forno;tomate;carne,,carne;massa;queijo;tomate,79
+Lasanha de frango,italiana,ave,tomate,intensa,massa;queijo;forno;tomate;frango,,frango;massa;queijo;tomate,58
+Lasanha de berinjela,italiana,vegetal,tomate,intensa,massa;queijo;forno;tomate;berinjela,vegetariano,berinjela;massa;queijo;tomate,41
+Lasanha de abóbora,italiana,vegetal,tomate,intensa,massa;queijo;forno;tomate;abóbora,vegetariano,abóbora;massa;queijo;tomate,49
+Lasanha de queijo,italiana,queijo,tomate,intensa,massa;queijo;forno;tomate,vegetariano,queijo;massa;tomate,52
+Fettuccine cremoso de cogumelos,italiana,vegetal,cremoso,media,massa;creme;parmesão;cogumelos,vegetariano,cogumelos;massa;creme;parmesão,40
+Fettuccine cremoso de salmão,italiana,peixe,cremoso,media,massa;creme;parmesão;salmão,,salmão;massa;creme;parmesão,62
+Fettuccine cremoso de camarão,italiana,frutos_do_mar,cremoso,media,massa;creme;parmesão;camarão,,camarão;massa;creme;parmesão,73
+Fettuccine cremoso de frango,italiana,ave,cremoso,media,massa;creme;parmesão;frango,,frango;massa;creme;parmesão,53
+Pizza de queijo,italiana,queijo,tomate,media,massa;queijo;forno;tomate,vegetariano,queijo;massa;tomate,49
+Pizza de linguiça,italiana,porco,tomate,media,massa;queijo;forno;tomate;linguiça,,linguiça;massa;queijo;tomate,60
+Pizza de cogumelos,italiana,vegetal,tomate,media,massa;queijo;forno;tomate;cogumelos,vegetariano,cogumelos;massa;queijo;tomate,49
+Pizza de legumes,italiana,vegetal,tomate,media,massa;queijo;forno;tomate;legumes,vegetariano,legumes;massa;queijo;tomate,40
+Pizza de atum,italiana,peixe,tomate,media,massa;queijo;forno;tomate;atum,,atum;massa;queijo;tomate,70
+Sushi de salmão,japonesa,peixe,leve,leve,arroz;cru;wasabi;shoyu;salmão,sem_lactose,salmão;arroz;wasabi;shoyu,71
+Sushi de atum,japonesa,peixe,leve,leve,arroz;cru;wasabi;shoyu;atum,sem_lactose,atum;arroz;wasabi;shoyu,79
+Sushi de camarão,japonesa,frutos_do_mar,leve,leve,arroz;cru;wasabi;shoyu;camarão,sem_lactose,camarão;arroz;wasabi;shoyu,88
+Sushi de legumes,japonesa,vegetal,leve,leve,arroz;cru;wasabi;shoyu;legumes,vegetariano;vegano;sem_lactose,legumes;arroz;wasabi;shoyu,57
+Sushi de polvo,japonesa,frutos_do_mar,leve,leve,arroz;cru;wasabi;shoyu;polvo,sem_lactose,polvo;arroz;wasabi;shoyu,86
+Lámen de porco,japonesa,porco,intenso,intensa,caldo;macarrão;umami;ovo;porco,sem_lactose,porco;caldo;macarrão;ovo,64
+Lámen de frango,japonesa,ave,intenso,intensa,caldo;macarrão;umami;ovo;frango,sem_lactose,frango;caldo;macarrão;ovo,59
+Lámen de cogumelos,japonesa,vegetal,intenso,intensa,caldo;macarrão;umami;ovo;cogumelos,vegetariano;sem_lactose,cogumelos;caldo;macarrão;ovo,53
+Lámen de tofu,japonesa,vegetal,intenso,intensa,caldo;macarrão;umami;ovo;tofu,vegetariano;sem_lactose,tofu;caldo;macarrão;ovo,55
+Tempurá de legumes,japonesa,vegetal,leve,leve,frito;crocante;shoyu;legumes,vegetariano;vegano;sem_lactose,legumes;shoyu,50
+Tempurá de camarão,japonesa,frutos_do_mar,leve,leve,frito;crocante;shoyu;camarão,sem_lactose,camarão;shoyu,90
+Tempurá de peixe branco,japonesa,peixe,leve,leve,frito;crocante;shoyu;peixe,sem_lactose,peixe branco;shoyu,68
+Tempurá de abóbora,japonesa,vegetal,leve,leve,frito;crocante;shoyu;abóbora,vegetariano;vegano;sem_lactose,abóbora;shoyu,58
+Teriyaki de frango,japonesa,ave,doce,media,shoyu;gengibre;arroz;gergelim;frango,sem_lactose,frango;shoyu;gengibre;arroz;gergelim,68
+Teriyaki de salmão,japonesa,peixe,doce,media,shoyu;gengibre;arroz;gergelim;salmão,sem_lactose,salmão;shoyu;gengibre;arroz;gergelim,70
+Teriyaki de tofu,japonesa,vegetal,doce,media,shoyu;gengibre;arroz;gergelim;tofu,vegetariano;vegano;sem_lactose,tofu;shoyu;gengibre;arroz;gergelim,57
+Teriyaki de carne,japonesa,carne_vermelha,doce,media,shoyu;gengibre;arroz;gergelim;carne,sem_lactose,carne;shoyu;gengibre;arroz;gergelim,80
+Moqueca de peixe branco,brasileira,peixe,picante,media,dendê;coco;pimenta;coentro;peixe,sem_gluten;sem_lactose,peixe branco;dendê;coco;pimenta;coentro,63
+Moqueca de camarão,brasileira,frutos_do_mar,picante,media,dendê;coco;pimenta;coentro;camarão,sem_gluten;sem_lactose,camarão;dendê;coco;pimenta;coentro,72
+Moqueca de legumes,brasileira,vegetal,picante,media,dendê;coco;pimenta;coentro;legumes,vegetariano;vegano;sem_gluten;sem_lactose,legumes;dendê;coco;pimenta;coentro,38
+Moqueca de polvo,brasileira,frutos_do_mar,picante,media,dendê;coco;pimenta;coentro;polvo,sem_gluten;sem_lactose,polvo;dendê;coco;pimenta;coentro,71
+Moqueca de bacalhau,brasileira,peixe,picante,media,dendê;coco;pimenta;coentro;bacalhau,sem_gluten;sem_lactose,bacalhau;dendê;coco;pimenta;coentro,70
+Bobó de camarão,brasileira,frutos_do_mar,cremoso,media,mandioca;coco;dendê;camarão,sem_gluten;sem_lactose,camarão;mandioca;coco;dendê,73
+Bobó de frango,brasileira,ave,cremoso,media,mandioca;coco;dendê;frango,sem_gluten;sem_lactose,frango;mandioca;coco;dendê,47
+Bobó de legumes,brasileira,vegetal,cremoso,media,mandioca;coco;dendê;legumes,vegetariano;vegano;sem_gluten;sem_lactose,legumes;mandioca;coco;dendê,37
+Churrasco de carne,brasileira,carne_vermelha,leve,intensa,churrasco;brasa;sal_grosso;defumado;carne,sem_gluten;sem_lactose,carne;sal grosso,70
+Churrasco de filé,brasileira,carne_vermelha,leve,intensa,churrasco;brasa;sal_grosso;defumado;filé,sem_gluten;sem_lactose,filé;sal grosso,65
+Churrasco de porco,brasileira,porco,leve,intensa,churrasco;brasa;sal_grosso;defumado;porco,sem_gluten;sem_lactose,porco;sal grosso,53
+Churrasco de linguiça,brasileira,porco,leve,intensa,churrasco;brasa;sal_grosso;defumado;linguiça,sem_gluten;sem_lactose,linguiça;sal grosso,53
+Churrasco de frango,brasileira,ave,leve,intensa,churrasco;brasa;sal_grosso;defumado;frango,sem_gluten;sem_lactose,frango;sal grosso,55
+Churrasco de legumes,brasileira,vegetal,leve,intensa,churrasco;brasa;sal_grosso;defumado;legumes,vegetariano;vegano;sem_gluten;sem_lactose,legumes;sal grosso,40
+Escondidinho de carne,brasileira,carne_vermelha,cremoso,media,mandioca;queijo;forno;carne,sem_gluten,carne;mandioca;queijo,76
+Escondidinho de frango,brasileira,ave,cremoso,media,mandioca;queijo;forno;frango,sem_gluten,frango;mandioca;queijo,46
+Escondidinho de bacalhau,brasileira,peixe,cremoso,media,mandioca;queijo;forno;bacalhau,sem_gluten,bacalhau;mandioca;queijo,69
+Escondidinho de legumes,brasileira,vegetal,cremoso,media,mandioca;queijo;forno;legumes,vegetariano;sem_gluten,legumes;mandioca;queijo,43
+Feijoada de porco,brasileira,porco,intenso,intensa,feijão;defumado;laranja;couve;porco,sem_gluten;sem_lactose,porco;feijão;laranja;couve,56
+Feijoada de linguiça,brasileira,porco,intenso,intensa,feijão;defumado;laranja;couve;linguiça,sem_gluten;sem_lactose,linguiça;feijão;laranja;couve,49
+Feijoada de legumes,brasileira,vegetal,intenso,intensa,feijão;defumado;laranja;couve;legumes,vegetariano;vegano;sem_gluten;sem_lactose,legumes;feijão;laranja;couve,42
+Parrilla de carne,argentina,carne_vermelha,leve,intensa,grelhado;chimichurri;brasa;carne,sem_gluten;sem_lactose,carne;chimichurri,79
+Parrilla de filé,argentina,carne_vermelha,leve,intensa,grelhado;chimichurri;brasa;filé,sem_gluten;sem_lactose,filé;chimichurri,86
+Parrilla de cordeiro,argentina,carne_vermelha,leve,intensa,grelhado;chimichurri;brasa;cordeiro,sem_gluten;sem_lactose,cordeiro;chimichurri,82
+Parrilla de linguiça,argentina,porco,leve,intensa,grelhado;chimichurri;brasa;linguiça,sem_gluten;sem_lactose,linguiça;chimichurri,72
+Parrilla de legumes,argentina,vegetal,leve,intensa,grelhado;chimichurri;brasa;legumes,vegetariano;vegano;sem_gluten;sem_lactose,legumes;chimichurri,59
+Empanada de carne,argentina,carne_vermelha,leve,media,massa;forno;azeitona;carne,sem_lactose,carne;massa;azeitona,83
+Empanada de frango,argentina,ave,leve,media,massa;forno;azeitona;frango,sem_lactose,frango;massa;azeitona,69
+Empanada de queijo,argentina,queijo,leve,media,massa;forno;azeitona;queijo,vegetariano,queijo;massa;azeitona,59
+Empanada de legumes,argentina,vegetal,leve,media,massa;forno;azeitona;legumes,vegetariano;vegano;sem_lactose,legumes;massa;azeitona,61
+Milanesa de carne,argentina,carne_vermelha,leve,media,empanado;frito;limão;carne,sem_lactose,carne;limão,79
+Milanesa de frango,argentina,ave,leve,media,empanado;frito;limão;frango,sem_lactose,frango;limão,60
+Milanesa de berinjela,argentina,vegetal,leve,media,empanado;frito;limão;berinjela,vegetariano;vegano;sem_lactose,berinjela;limão,60
+Ensopado ao vinho de carne,francesa,carne_vermelha,intenso,media,vinho;ensopado;ervas;bacon;carne,sem_gluten;sem_lactose,carne;vinho;ervas;bacon,91
+Ensopado ao vinho de frango,francesa,ave,intenso,media,vinho;ensopado;ervas;bacon;frango,sem_gluten;sem_lactose,frango;vinho;ervas;bacon,82
+Ensopado ao vinho de pato,francesa,ave,intenso,media,vinho;ensopado;ervas;bacon;pato,sem_gluten;sem_lactose,pato;vinho;ervas;bacon,74
+Ensopado ao vinho de cogumelos,francesa,vegetal,intenso,media,vinho;ensopado;ervas;bacon;cogumelos,vegetariano;vegano;sem_gluten;sem_lactose,cogumelos;vinho;ervas;bacon,61
+Salmão na manteiga de limão,francesa,peixe,cremoso,media,manteiga;limão;ervas;salmão,sem_gluten,salmão;manteiga;limão;ervas,85
+Peixe branco na manteiga de limão,francesa,peixe,cremoso,media,manteiga;limão;ervas;peixe,sem_gluten,peixe branco;manteiga;limão;ervas,83
+Camarão na manteiga de limão,francesa,frutos_do_mar,cremoso,media,manteiga;limão;ervas;camarão,sem_gluten,camarão;manteiga;limão;ervas,98
+Frango na manteiga de limão,francesa,ave,cremoso,media,manteiga;limão;ervas;frango,sem_gluten,frango;manteiga;limão;ervas,74
+Quiche de legumes,francesa,vegetal,cremoso,media,massa;ovo;queijo;forno;legumes,vegetariano,legumes;massa;ovo;queijo,67
+Quiche de cogumelos,francesa,vegetal,cremoso,media,massa;ovo;queijo;forno;cogumelos,vegetariano,cogumelos;massa;ovo;queijo,70
+Quiche de salmão,francesa,peixe,cremoso,media,massa;ovo;queijo;forno;salmão,,salmão;massa;ovo;queijo,87
+Quiche de queijo,francesa,queijo,cremoso,media,massa;ovo;queijo;forno,vegetariano,queijo;massa;ovo,68
+Gratinado de legumes,francesa,vegetal,cremoso,intensa,queijo;creme;forno;legumes,vegetariano;sem_gluten,legumes;queijo;creme,65
+Gratinado de abóbora,francesa,vegetal,cremoso,intensa,queijo;creme;forno;abóbora,vegetariano;sem_gluten,abóbora;queijo;creme,65
+Gratinado de bacalhau,francesa,peixe,cremoso,intensa,queijo;creme;forno;bacalhau,sem_gluten,bacalhau;queijo;creme,85
+Gratinado de frango,francesa,ave,cremoso,intensa,queijo;creme;forno;frango,sem_gluten,frango;queijo;creme,80
+Tacos de carne,mexicana,carne_vermelha,picante,media,tortilla;pimenta;coentro;limão;carne,sem_gluten;sem_lactose,carne;tortilla;pimenta;coentro;limão,62
+Tacos de porco,mexicana,porco,picante,media,tortilla;pimenta;coentro;limão;porco,sem_gluten;sem_lactose,porco;tortilla;pimenta;coentro;limão,53
+Tacos de frango,mexicana,ave,picante,media,tortilla;pimenta;coentro;limão;frango,sem_gluten;sem_lactose,frango;tortilla;pimenta;coentro;limão,50
+Tacos de peixe branco,mexicana,peixe,picante,media,tortilla;pimenta;coentro;limão;peixe,sem_gluten;sem_lactose,peixe branco;tortilla;pimenta;coentro;limão,62
+Tacos de legumes,mexicana,vegetal,picante,media,tortilla;pimenta;coentro;limão;legumes,vegetariano;vegano;sem_gluten;sem_lactose,legumes;tortilla;pimenta;coentro;limão,31
+Tacos de camarão,mexicana,frutos_do_mar,picante,media,tortilla;pimenta;coentro;limão;camarão,sem_gluten;sem_lactose,camarão;tortilla;pimenta;coentro;limão,71
+Burrito de carne,mexicana,carne_vermelha,picante,intensa,tortilla;feijão;arroz;queijo;carne,,carne;tortilla;feijão;arroz;queijo,68
+Burrito de frango,mexicana,ave,picante,intensa,tortilla;feijão;arroz;queijo;frango,,frango;tortilla;feijão;arroz;queijo,42
+Burrito de legumes,mexicana,vegetal,picante,intensa,tortilla;feijão;arroz;queijo;legumes,vegetariano,legumes;tortilla;feijão;arroz;queijo,38
+Burrito de porco,mexicana,porco,picante,intensa,tortilla;feijão;arroz;queijo;porco,,porco;tortilla;feijão;arroz;queijo,53
+Enchiladas de frango,mexicana,ave,picante,media,tortilla;queijo;forno;tomate;frango,sem_gluten,frango;tortilla;queijo;tomate,43
+Enchiladas de queijo,mexicana,queijo,picante,media,tortilla;queijo;forno;tomate,vegetariano;sem_gluten,queijo;tortilla;tomate,38
+Enchiladas de legumes,mexicana,vegetal,picante,media,tortilla;queijo;forno;tomate;legumes,vegetariano;sem_gluten,legumes;tortilla;queijo;tomate,37
+Espetinho de cordeiro,árabe,carne_vermelha,leve,media,grelhado;especiarias;hortelã;cordeiro,sem_gluten;sem_lactose,cordeiro;especiarias;hortelã,60
+Espetinho de carne,árabe,carne_vermelha,leve,media,grelhado;especiarias;hortelã;carne,sem_gluten;sem_lactose,carne;especiarias;hortelã,58
+Espetinho de frango,árabe,ave,leve,media,grelhado;especiarias;hortelã;frango,sem_gluten;sem_lactose,frango;especiarias;hortelã,46
+Espetinho de legumes,árabe,vegetal,leve,media,grelhado;especiarias;hortelã;legumes,vegetariano;vegano;sem_gluten;sem_lactose,legumes;especiarias;hortelã,37
+Esfiha de carne,árabe,carne_vermelha,leve,media,massa;forno;limão;carne,sem_lactose,carne;massa;limão,62
+Esfiha de queijo,árabe,queijo,leve,media,massa;forno;limão;queijo,vegetariano,queijo;massa;limão,35
+Esfiha de legumes,árabe,vegetal,leve,media,massa;forno;limão;legumes,vegetariano;vegano;sem_lactose,legumes;massa;limão,36
+Esfiha de frango,árabe,ave,leve,media,massa;forno;limão;frango,sem_lactose,frango;massa;limão,41
+Falafel com homus e grão-de-bico,árabe,vegetal,leve,leve,tahine;ervas;frito;limão;grão-de-bico,vegetariano;vegano;sem_gluten;sem_lactose,grão-de-bico;tahine;ervas;limão,38
+Falafel com homus e legumes,árabe,vegetal,leve,leve,tahine;ervas;frito;limão;legumes,vegetariano;vegano;sem_gluten;sem_lactose,legumes;tahine;ervas;limão,38
+Falafel com homus e berinjela,árabe,vegetal,leve,leve,tahine;ervas;frito;limão;berinjela,vegetariano;vegano;sem_gluten;sem_lactose,berinjela;tahine;ervas;limão,26
+Curry de frango,indiana,ave,picante,intensa,curry;especiarias;coco;arroz;frango,sem_gluten;sem_lactose,frango;especiarias;coco;arroz,51
+Curry de cordeiro,indiana,carne_vermelha,picante,intensa,curry;especiarias;coco;arroz;cordeiro,sem_gluten;sem_lactose,cordeiro;especiarias;coco;arroz,66
+Curry de camarão,indiana,frutos_do_mar,picante,intensa,curry;especiarias;coco;arroz;camarão,sem_gluten;sem_lactose,camarão;especiarias;coco;arroz,82
+Curry de grão-de-bico,indiana,vegetal,picante,intensa,curry;especiarias;coco;arroz;grão-de-bico,vegetariano;vegano;sem_gluten;sem_lactose,grão-de-bico;especiarias;coco;arroz,43
+Curry de legumes,indiana,vegetal,picante,intensa,curry;especiarias;coco;arroz;legumes,vegetariano;vegano;sem_gluten;sem_lactose,legumes;especiarias;coco;arroz,44
+Tikka masala de frango,indiana,ave,cremoso,intensa,especiarias;creme;tomate;frango,sem_gluten,frango;especiarias;creme;tomate,52
+Tikka masala de queijo,indiana,queijo,cremoso,intensa,especiarias;creme;tomate;queijo,vegetariano;sem_gluten,queijo;especiarias;creme;tomate,45
+Tikka masala de camarão,indiana,frutos_do_mar,cremoso,intensa,especiarias;creme;tomate;camarão,sem_gluten,camarão;especiarias;creme;tomate,73
+Tikka masala de legumes,indiana,vegetal,cremoso,intensa,especiarias;creme;tomate;legumes,vegetariano;sem_gluten,legumes;especiarias;creme;tomate,47
+Biryani de frango,indiana,ave,picante,media,arroz;especiarias;açafrão;frango,sem_gluten;sem_lactose,frango;arroz;especiarias;açafrão,59
+Biryani de cordeiro,indiana,carne_vermelha,picante,media,arroz;especiarias;açafrão;cordeiro,sem_gluten;sem_lactose,cordeiro;arroz;especiarias;açafrão,71
+Biryani de legumes,indiana,vegetal,picante,media,arroz;especiarias;açafrão;legumes,vegetariano;vegano;sem_gluten;sem_lactose,legumes;arroz;especiarias;açafrão,41
+Biryani de camarão,indiana,frutos_do_mar,picante,media,arroz;especiarias;açafrão;camarão,sem_gluten;sem_lactose,camarão;arroz;especiarias;açafrão,80
+Pad thai de camarão,tailandesa,frutos_do_mar,doce,media,macarrão;amendoim;limão;tamarindo;camarão,sem_gluten;sem_lactose,camarão;macarrão;amendoim;limão;tamarindo,77
+Pad thai de frango,tailandesa,ave,doce,media,macarrão;amendoim;limão;tamarindo;frango,sem_gluten;sem_lactose,frango;macarrão;amendoim;limão;tamarindo,54
+Pad thai de tofu,tailandesa,vegetal,doce,media,macarrão;amendoim;limão;tamarindo;tofu,vegetariano;vegano;sem_gluten;sem_lactose,tofu;macarrão;amendoim;limão;tamarindo,48
+Pad thai de legumes,tailandesa,vegetal,doce,media,macarrão;amendoim;limão;tamarindo;legumes,vegetariano;vegano;sem_gluten;sem_lactose,legumes;macarrão;amendoim;limão;tamarindo,45
+Curry verde de frango,tailandesa,ave,picante,intensa,coco;pimenta;manjericão;frango,sem_gluten;sem_lactose,frango;coco;pimenta;manjericão,50
+Curry verde de camarão,tailandesa,frutos_do_mar,picante,intensa,coco;pimenta;manjericão;camarão,sem_gluten;sem_lactose,camarão;coco;pimenta;manjericão,74
+Curry verde de tofu,tailandesa,vegetal,picante,intensa,coco;pimenta;manjericão;tofu,vegetariano;vegano;sem_gluten;sem_lactose,tofu;coco;pimenta;manjericão,40
+Curry verde de legumes,tailandesa,vegetal,picante,intensa,coco;pimenta;manjericão;legumes,vegetariano;vegano;sem_gluten;sem_lactose,legumes;coco;pimenta;manjericão,41
+Curry verde de peixe branco,tailandesa,peixe,picante,intensa,coco;pimenta;manjericão;peixe,sem_gluten;sem_lactose,peixe branco;coco;pimenta;manjericão,71
+Salada thai de carne,tailandesa,carne_vermelha,leve,leve,limão;coentro;pimenta;crocante;carne,sem_gluten;sem_lactose,carne;limão;coentro;pimenta,74
+Salada thai de camarão,tailandesa,frutos_do_mar,leve,leve,limão;coentro;pimenta;crocante;camarão,sem_gluten;sem_lactose,camarão;limão;coentro;pimenta,78
+Salada thai de tofu,tailandesa,vegetal,leve,leve,limão;coentro;pimenta;crocante;tofu,vegetariano;vegano;sem_gluten;sem_lactose,tofu;limão;coentro;pimenta,42
+Salada thai de legumes,tailandesa,vegetal,leve,leve,limão;coentro;pimenta;crocante;legumes,vegetariano;vegano;sem_gluten;sem_lactose,legumes;limão;coentro;pimenta,49
+Xadrez de frango,chinesa,ave,intenso,media,shoyu;pimentão;amendoim;frango,sem_lactose,frango;shoyu;pimentão;amendoim,47
+Xadrez de carne,chinesa,carne_vermelha,intenso,media,shoyu;pimentão;amendoim;carne,sem_lactose,carne;shoyu;pimentão;amendoim,62
+Xadrez de tofu,chinesa,vegetal,intenso,media,shoyu;pimentão;amendoim;tofu,vegetariano;vegano;sem_lactose,tofu;shoyu;pimentão;amendoim,37
+Xadrez de camarão,chinesa,frutos_do_mar,intenso,media,shoyu;pimentão;amendoim;camarão,sem_lactose,camarão;shoyu;pimentão;amendoim,66
+Agridoce de porco,chinesa,porco,doce,media,agridoce;abacaxi;frito;porco,sem_lactose,porco;abacaxi,45
+Agridoce de frango,chinesa,ave,doce,media,agridoce;abacaxi;frito;frango,sem_lactose,frango;abacaxi,41
+Agridoce de peixe branco,chinesa,peixe,doce,media,agridoce;abacaxi;frito;peixe,sem_lactose,peixe branco;abacaxi,52
+Agridoce de legumes,chinesa,vegetal,doce,media,agridoce;abacaxi;frito;legumes,vegetariano;vegano;sem_lactose,legumes;abacaxi,36
+Chop suey de frango,chinesa,ave,leve,leve,legumes;shoyu;broto;frango,sem_lactose,frango;legumes;shoyu;broto,45
+Chop suey de carne,chinesa,carne_vermelha,leve,leve,legumes;shoyu;broto;carne,sem_lactose,carne;legumes;shoyu;broto,57
+Chop suey de camarão,chinesa,frutos_do_mar,leve,leve,legumes;shoyu;broto;camarão,sem_lactose,camarão;legumes;shoyu;broto,72
+Chop suey de tofu,chinesa,vegetal,leve,leve,legumes;shoyu;broto;tofu,vegetariano;vegano;sem_lactose,tofu;legumes;shoyu;broto,28
+Chop suey de legumes,chinesa,vegetal,leve,leve,legumes;shoyu;broto,vegetariano;vegano;sem_lactose,legumes;shoyu;broto,29
+Ceviche de peixe branco,peruana,peixe,leve,leve,limão;cru;cebola_roxa;coentro;peixe,sem_gluten;sem_lactose,peixe branco;limão;cebola roxa;coentro,72
+Ceviche de camarão,peruana,frutos_do_mar,leve,leve,limão;cru;cebola_roxa;coentro;camarão,sem_gluten;sem_lactose,camarão;limão;cebola roxa;coentro,90
+Ceviche de polvo,peruana,frutos_do_mar,leve,leve,limão;cru;cebola_roxa;coentro;polvo,sem_gluten;sem_lactose,polvo;limão;cebola roxa;coentro,82
+Ceviche de lula,peruana,frutos_do_mar,leve,leve,limão;cru;cebola_roxa;coentro;lula,sem_gluten;sem_lactose,lula;limão;cebola roxa;coentro,92
+Ceviche de cogumelos,peruana,vegetal,leve,leve,limão;cru;cebola_roxa;coentro;cogumelos,vegetariano;vegano;sem_gluten;sem_lactose,cogumelos;limão;cebola roxa;coentro,58
+Lomo saltado de carne,peruana,carne_vermelha,intenso,intensa,shoyu;batata;cebola;carne,sem_lactose,carne;shoyu;batata;cebola,82
+Lomo saltado de frango,peruana,ave,intenso,intensa,shoyu;batata;cebola;frango,sem_lactose,frango;shoyu;batata;cebola,67
+Lomo saltado de cogumelos,peruana,vegetal,intenso,intensa,shoyu;batata;cebola;cogumelos,vegetariano;vegano;sem_lactose,cogumelos;shoyu;batata;cebola,49
+Arroz chaufa de frango,peruana,ave,intenso,media,arroz;shoyu;ovo;frango,sem_lactose,frango;arroz;shoyu;ovo,64
+Arroz chaufa de porco,peruana,porco,intenso,media,arroz;shoyu;ovo;porco,sem_lactose,porco;arroz;shoyu;ovo,66
+Arroz chaufa de camarão,peruana,frutos_do_mar,intenso,media,arroz;shoyu;ovo;camarão,sem_lactose,camarão;arroz;shoyu;ovo,89
+Arroz chaufa de legumes,peruana,vegetal,intenso,media,arroz;shoyu;ovo;legumes,vegetariano;sem_lactose,legumes;arroz;shoyu;ovo,55
+Paella de camarão,espanhola,frutos_do_mar,intenso,media,arroz;açafrão;páprica;camarão,sem_gluten;sem_lactose,camarão;arroz;açafrão;páprica,92
+Paella de frango,espanhola,ave,intenso,media,arroz;açafrão;páprica;frango,sem_gluten;sem_lactose,frango;arroz;açafrão;páprica,66
+Paella de legumes,espanhola,vegetal,intenso,media,arroz;açafrão;páprica;legumes,vegetariano;vegano;sem_gluten;sem_lactose,legumes;arroz;açafrão;páprica,60
+Paella de lula,espanhola,frutos_do_mar,intenso,media,arroz;açafrão;páprica;lula,sem_gluten;sem_lactose,lula;arroz;açafrão;páprica,84
+Paella de polvo,espanhola,frutos_do_mar,intenso,media,arroz;açafrão;páprica;polvo,sem_gluten;sem_lactose,polvo;arroz;açafrão;páprica,94
+Tapas de camarão,espanhola,frutos_do_mar,leve,leve,azeite;alho;páprica;camarão,sem_gluten;sem_lactose,camarão;azeite;alho;páprica,95
+Tapas de polvo,espanhola,frutos_do_mar,leve,leve,azeite;alho;páprica;polvo,sem_gluten;sem_lactose,polvo;azeite;alho;páprica,85
+Tapas de cogumelos,espanhola,vegetal,leve,leve,azeite;alho;páprica;cogumelos,vegetariano;vegano;sem_gluten;sem_lactose,cogumelos;azeite;alho;páprica,62
+Tapas de linguiça,espanhola,porco,leve,leve,azeite;alho;páprica;linguiça,sem_gluten;sem_lactose,linguiça;azeite;alho;páprica,72
+Tapas de queijo,espanhola,queijo,leve,leve,azeite;alho;páprica;queijo,vegetariano;sem_gluten,queijo;azeite;alho;páprica,70

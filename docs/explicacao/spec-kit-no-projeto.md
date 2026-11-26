@@ -26,9 +26,11 @@ abrir `specs/` e entender por que uma escolha foi feita, não só qual foi.
 respeitar e que o `/speckit-plan` confere explicitamente (a seção *Constitution Check* de cada
 `plan.md`). Os cinco princípios atuais:
 
-1. **Um agente, uma biblioteca de recomendação** (LightFM, implicit, Surprise).
+1. **Um agente, uma biblioteca de recomendação** (LightFM, implicit, Surprise), mais um Anfitrião
+   sem tool que só resume.
 2. **Recomendadores determinísticos e sem LLM**, separados do CrewAI.
-3. **Dados locais versionados**; o único serviço externo é a OpenAI.
+3. **Dados locais versionados** — base toy escrita à mão e base large gerada por script com
+   semente fixa; o único serviço externo é a OpenAI.
 4. **Simplicidade didática**; toda dependência extra é justificada.
 5. **Testes offline para cada recomendador; segredos só no `.env`.**
 
@@ -57,6 +59,18 @@ de saída de 001 continuam valendo. O `plan.md` de 002 registra as decisões que
 olhando o código: por que cada biblioteca foi para cada agente, por que KNN e não SVD, e por que o
 fork `rectools-lightfm`.
 
+**Feature 003 (`specs/003-streamlit-chat-ui/`) e constitution 2.1.0** — a interface de chat em
+Streamlit. A constitution ganhou uma versão MINOR: a seção de tecnologia passou a admitir um segundo
+ponto de entrada, desde que ele tenha um modo que funcione sem LLM. A feature também extraiu
+`pipeline.py`, o código comum à CLI e à interface.
+
+**Feature 004 (`specs/004-large-data-host-prices/`) e constitution 3.0.0** — base de dados grande,
+agente Anfitrião, ingredientes e preços. Dois princípios foram redefinidos (MAJOR): o I passou a
+admitir um agente sem tool, desde que ele só resuma; o III deixou de exigir dados "pequenos" e passou
+a exigir que a base grande seja exatamente a saída de um script versionado. O `plan.md` de 004
+registra ajustes feitos depois de olhar os resultados — o viés de popularidade nos vinhos e a
+esparsidade nas notas —, que mudaram o gerador, não os modelos.
+
 Durante a implementação de 002, os testes e o `--dry-run` revelaram problemas que não estavam no
 plano — um restaurante sem notas recebendo nota 1, um resultado vazio quando o usuário já tinha
 avaliado todos os restaurantes da cidade, ruído na cauda do ALS. Foram corrigidos e cobertos por
@@ -78,6 +92,8 @@ medida que o projeto cresce ou passa a ter mais de uma pessoa (ou agente) trabal
 | Constitution | `.specify/memory/constitution.md` |
 | Feature 001 | `specs/001-dinner-pairing-crew/` (spec, plan, research, data-model, contracts, quickstart, tasks) |
 | Feature 002 | `specs/002-library-recommenders/` (spec, plan, contracts, tasks) |
+| Feature 003 | `specs/003-streamlit-chat-ui/` (spec, plan, tasks) |
+| Feature 004 | `specs/004-large-data-host-prices/` (spec, plan, tasks) |
 | Feature ativa | `.specify/feature.json` |
 
 Para usar o fluxo numa nova mudança: [Como evoluir o projeto com o Spec Kit](../guias/como-evoluir-com-spec-kit.md).

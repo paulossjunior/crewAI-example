@@ -51,11 +51,12 @@ def test_crew_builds_without_kickoff(monkeypatch):
     from dinner_crew.crew import DinnerCrew
 
     crew = DinnerCrew().crew()
-    assert len(crew.agents) == 3
-    assert len(crew.tasks) == 3
-    tool_names = [a.tools[0].name for a in crew.agents]
+    assert len(crew.agents) == 4
+    assert [t.agent.role for t in crew.tasks][-1] == "Anfitrião do Jantar"
+    tool_names = [a.tools[0].name if a.tools else None for a in crew.agents]
     assert tool_names == [
         "food_lightfm_recommender",
         "wine_implicit_recommender",
         "restaurant_surprise_recommender",
+        None,  # the host has no tool
     ]

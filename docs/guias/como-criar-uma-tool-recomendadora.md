@@ -44,13 +44,14 @@ Rode `uv run pytest tests/test_<nome>.py`.
 
 ## 3. Crie a tool
 
-Em `src/dinner_crew/tools/recommender_tools.py`, adicione uma factory com `@cache` (o modelo treina
-uma vez por processo), um schema pydantic e a classe da tool:
+Primeiro, treine o novo modelo em `pipeline.Recommenders.__init__` (passando `data_dir`, para que ele
+respeite a base escolhida). Depois, em `src/dinner_crew/tools/recommender_tools.py`, adicione uma
+função que o devolva a partir de `recommenders()` (cacheado por base), um schema pydantic e a classe
+da tool:
 
 ```python
-@cache
 def dessert_recommender() -> DessertRecommender:
-    return DessertRecommender()
+    return recommenders().dessert
 
 
 class DessertArgs(BaseModel):
@@ -79,8 +80,10 @@ entra e sai.
 ## 5. Crie ou ajuste a tarefa
 
 Em `src/dinner_crew/config/tasks.yaml`, a tarefa deve dizer qual tool chamar e com quais
-argumentos. Use `context` para receber a saída de tarefas anteriores. Se a ordem importa, a ordem
-dos métodos `@task` em `crew.py` define a sequência.
+argumentos. Use `context` para receber a saída de tarefas anteriores. A ordem dos métodos `@task`
+em `crew.py` define a sequência: a nova tarefa deve vir **antes** de `write_summary`, e
+`write_summary` precisa listá-la em `context` (e ganhar uma seção no prompt) para que o Anfitrião
+a inclua no plano. Atualize também `pipeline.render_plan`/`summarize` para o modo sem IA.
 
 Se a tarefa usa um placeholder novo (ex.: `{dessert_pref}`), inclua-o no dicionário `inputs` em
 `src/dinner_crew/main.py`.
@@ -88,7 +91,8 @@ Se a tarefa usa um placeholder novo (ex.: `{dessert_pref}`), inclua-o no dicion�
 ## 6. Atualize o `--dry-run` e os testes da CLI
 
 Acrescente o novo recomendador ao bloco `if args.dry_run:` de `main.py` e o nome da tool à
-lista esperada em `tests/test_cli.py::test_crew_builds_without_kickoff`.
+lista esperada em `tests/test_cli.py::test_crew_builds_without_kickoff` (o último agente, o
+Anfitrião, não tem tool).
 
 ## 7. Verifique
 

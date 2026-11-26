@@ -1,0 +1,150 @@
+name,type,body,price,notes,grape,price_brl
+Pinot Noir Chile,tinto,leve,baixa,cereja e terroso,Pinot Noir,62
+Pinot Noir Reserva Chile,tinto,leve,media,cereja e terroso,Pinot Noir,172
+Pinot Noir Gran Reserva Chile,tinto,leve,alta,cereja e terroso,Pinot Noir,374
+Pinot Noir Borgonha,tinto,leve,baixa,cereja e terroso,Pinot Noir,52
+Pinot Noir Reserva Borgonha,tinto,leve,media,cereja e terroso,Pinot Noir,127
+Pinot Noir Gran Reserva Borgonha,tinto,leve,alta,cereja e terroso,Pinot Noir,422
+Pinot Noir Reserva Oregon,tinto,leve,media,cereja e terroso,Pinot Noir,110
+Pinot Noir Serra Gaúcha,tinto,leve,baixa,cereja e terroso,Pinot Noir,74
+Pinot Noir Reserva Serra Gaúcha,tinto,leve,media,cereja e terroso,Pinot Noir,90
+Pinot Noir Gran Reserva Serra Gaúcha,tinto,leve,alta,cereja e terroso,Pinot Noir,334
+Gamay Beaujolais,tinto,leve,baixa,frutas vermelhas frescas,Gamay,77
+Gamay Reserva Beaujolais,tinto,leve,media,frutas vermelhas frescas,Gamay,112
+Gamay Gran Reserva Beaujolais,tinto,leve,alta,frutas vermelhas frescas,Gamay,459
+Merlot Serra Gaúcha,tinto,medio,baixa,ameixa macia,Merlot,51
+Merlot Reserva Serra Gaúcha,tinto,medio,media,ameixa macia,Merlot,170
+Merlot Gran Reserva Serra Gaúcha,tinto,medio,alta,ameixa macia,Merlot,352
+Merlot Chile,tinto,medio,baixa,ameixa macia,Merlot,85
+Merlot Reserva Chile,tinto,medio,media,ameixa macia,Merlot,154
+Merlot Gran Reserva Chile,tinto,medio,alta,ameixa macia,Merlot,301
+Merlot Reserva Bordeaux,tinto,medio,media,ameixa macia,Merlot,109
+Sangiovese Toscana,tinto,medio,baixa,cereja e ervas secas,Sangiovese,68
+Sangiovese Reserva Toscana,tinto,medio,media,cereja e ervas secas,Sangiovese,110
+Sangiovese Gran Reserva Toscana,tinto,medio,alta,cereja e ervas secas,Sangiovese,476
+Sangiovese Chianti,tinto,medio,baixa,cereja e ervas secas,Sangiovese,78
+Sangiovese Reserva Chianti,tinto,medio,media,cereja e ervas secas,Sangiovese,90
+Sangiovese Gran Reserva Chianti,tinto,medio,alta,cereja e ervas secas,Sangiovese,365
+Tempranillo Rioja,tinto,medio,baixa,couro e frutas negras,Tempranillo,76
+Tempranillo Reserva Rioja,tinto,medio,media,couro e frutas negras,Tempranillo,92
+Tempranillo Gran Reserva Rioja,tinto,medio,alta,couro e frutas negras,Tempranillo,257
+Tempranillo Ribera del Duero,tinto,medio,baixa,couro e frutas negras,Tempranillo,68
+Tempranillo Reserva Ribera del Duero,tinto,medio,media,couro e frutas negras,Tempranillo,129
+Tempranillo Gran Reserva Ribera del Duero,tinto,medio,alta,couro e frutas negras,Tempranillo,322
+Carménère Chile,tinto,medio,baixa,pimentão e especiarias,Carménère,48
+Carménère Reserva Chile,tinto,medio,media,pimentão e especiarias,Carménère,120
+Carménère Gran Reserva Chile,tinto,medio,alta,pimentão e especiarias,Carménère,240
+Grenache Rhône,tinto,medio,baixa,morango e especiarias,Grenache,50
+Grenache Reserva Rhône,tinto,medio,media,morango e especiarias,Grenache,152
+Grenache Gran Reserva Rhône,tinto,medio,alta,morango e especiarias,Grenache,235
+Grenache Priorat,tinto,medio,baixa,morango e especiarias,Grenache,79
+Grenache Reserva Priorat,tinto,medio,media,morango e especiarias,Grenache,106
+Grenache Gran Reserva Priorat,tinto,medio,alta,morango e especiarias,Grenache,265
+Malbec Mendoza,tinto,encorpado,baixa,amora e taninos firmes,Malbec,75
+Malbec Reserva Mendoza,tinto,encorpado,media,amora e taninos firmes,Malbec,160
+Malbec Gran Reserva Mendoza,tinto,encorpado,alta,amora e taninos firmes,Malbec,284
+Malbec Cahors,tinto,encorpado,baixa,amora e taninos firmes,Malbec,61
+Malbec Reserva Cahors,tinto,encorpado,media,amora e taninos firmes,Malbec,157
+Malbec Gran Reserva Cahors,tinto,encorpado,alta,amora e taninos firmes,Malbec,416
+Malbec Reserva Salta,tinto,encorpado,media,amora e taninos firmes,Malbec,117
+Cabernet Sauvignon Napa,tinto,encorpado,baixa,cassis e carvalho,Cabernet Sauvignon,79
+Cabernet Sauvignon Reserva Napa,tinto,encorpado,media,cassis e carvalho,Cabernet Sauvignon,178
+Cabernet Sauvignon Gran Reserva Napa,tinto,encorpado,alta,cassis e carvalho,Cabernet Sauvignon,302
+Cabernet Sauvignon Chile,tinto,encorpado,baixa,cassis e carvalho,Cabernet Sauvignon,64
+Cabernet Sauvignon Reserva Chile,tinto,encorpado,media,cassis e carvalho,Cabernet Sauvignon,141
+Cabernet Sauvignon Gran Reserva Chile,tinto,encorpado,alta,cassis e carvalho,Cabernet Sauvignon,391
+Cabernet Sauvignon Reserva Bordeaux,tinto,encorpado,media,cassis e carvalho,Cabernet Sauvignon,146
+Cabernet Sauvignon Mendoza,tinto,encorpado,baixa,cassis e carvalho,Cabernet Sauvignon,78
+Cabernet Sauvignon Reserva Mendoza,tinto,encorpado,media,cassis e carvalho,Cabernet Sauvignon,147
+Cabernet Sauvignon Gran Reserva Mendoza,tinto,encorpado,alta,cassis e carvalho,Cabernet Sauvignon,261
+Syrah Rhône,tinto,encorpado,baixa,pimenta-do-reino e frutas negras,Syrah,60
+Syrah Reserva Rhône,tinto,encorpado,media,pimenta-do-reino e frutas negras,Syrah,118
+Syrah Gran Reserva Rhône,tinto,encorpado,alta,pimenta-do-reino e frutas negras,Syrah,232
+Syrah Barossa,tinto,encorpado,baixa,pimenta-do-reino e frutas negras,Syrah,66
+Syrah Reserva Barossa,tinto,encorpado,media,pimenta-do-reino e frutas negras,Syrah,92
+Syrah Gran Reserva Barossa,tinto,encorpado,alta,pimenta-do-reino e frutas negras,Syrah,317
+Syrah Reserva Vale do São Francisco,tinto,encorpado,media,pimenta-do-reino e frutas negras,Syrah,165
+Tannat Uruguai,tinto,encorpado,baixa,taninos potentes,Tannat,59
+Tannat Reserva Uruguai,tinto,encorpado,media,taninos potentes,Tannat,90
+Tannat Gran Reserva Uruguai,tinto,encorpado,alta,taninos potentes,Tannat,236
+Tannat Madiran,tinto,encorpado,baixa,taninos potentes,Tannat,85
+Tannat Reserva Madiran,tinto,encorpado,media,taninos potentes,Tannat,97
+Tannat Gran Reserva Madiran,tinto,encorpado,alta,taninos potentes,Tannat,317
+Nebbiolo Barolo,tinto,encorpado,baixa,rosas e alcatrão,Nebbiolo,49
+Nebbiolo Reserva Barolo,tinto,encorpado,media,rosas e alcatrão,Nebbiolo,94
+Nebbiolo Gran Reserva Barolo,tinto,encorpado,alta,rosas e alcatrão,Nebbiolo,369
+Nebbiolo Piemonte,tinto,encorpado,baixa,rosas e alcatrão,Nebbiolo,49
+Nebbiolo Reserva Piemonte,tinto,encorpado,media,rosas e alcatrão,Nebbiolo,155
+Nebbiolo Gran Reserva Piemonte,tinto,encorpado,alta,rosas e alcatrão,Nebbiolo,321
+Touriga Nacional Douro,tinto,encorpado,baixa,violeta e frutas negras,Touriga Nacional,62
+Touriga Nacional Reserva Douro,tinto,encorpado,media,violeta e frutas negras,Touriga Nacional,175
+Touriga Nacional Gran Reserva Douro,tinto,encorpado,alta,violeta e frutas negras,Touriga Nacional,448
+Touriga Nacional Dão,tinto,encorpado,baixa,violeta e frutas negras,Touriga Nacional,58
+Touriga Nacional Reserva Dão,tinto,encorpado,media,violeta e frutas negras,Touriga Nacional,159
+Touriga Nacional Gran Reserva Dão,tinto,encorpado,alta,violeta e frutas negras,Touriga Nacional,267
+Sauvignon Blanc Chile,branco,leve,baixa,cítrico e herbáceo,Sauvignon Blanc,81
+Sauvignon Blanc Reserva Chile,branco,leve,media,cítrico e herbáceo,Sauvignon Blanc,163
+Sauvignon Blanc Gran Reserva Chile,branco,leve,alta,cítrico e herbáceo,Sauvignon Blanc,442
+Sauvignon Blanc Nova Zelândia,branco,leve,baixa,cítrico e herbáceo,Sauvignon Blanc,60
+Sauvignon Blanc Reserva Nova Zelândia,branco,leve,media,cítrico e herbáceo,Sauvignon Blanc,150
+Sauvignon Blanc Gran Reserva Nova Zelândia,branco,leve,alta,cítrico e herbáceo,Sauvignon Blanc,408
+Sauvignon Blanc Reserva Loire,branco,leve,media,cítrico e herbáceo,Sauvignon Blanc,114
+Albariño Rías Baixas,branco,leve,baixa,salino e floral,Albariño,51
+Albariño Reserva Rías Baixas,branco,leve,media,salino e floral,Albariño,102
+Albariño Gran Reserva Rías Baixas,branco,leve,alta,salino e floral,Albariño,420
+Riesling Alsácia,branco,leve,baixa,lima e leve dulçor,Riesling,67
+Riesling Reserva Alsácia,branco,leve,media,lima e leve dulçor,Riesling,144
+Riesling Gran Reserva Alsácia,branco,leve,alta,lima e leve dulçor,Riesling,410
+Riesling Mosel,branco,leve,baixa,lima e leve dulçor,Riesling,74
+Riesling Reserva Mosel,branco,leve,media,lima e leve dulçor,Riesling,96
+Riesling Gran Reserva Mosel,branco,leve,alta,lima e leve dulçor,Riesling,250
+Pinot Grigio Vêneto,branco,leve,baixa,pera e amêndoa,Pinot Grigio,48
+Pinot Grigio Reserva Vêneto,branco,leve,media,pera e amêndoa,Pinot Grigio,141
+Pinot Grigio Gran Reserva Vêneto,branco,leve,alta,pera e amêndoa,Pinot Grigio,373
+Alvarinho Vinho Verde,branco,leve,baixa,cítrico e mineral,Alvarinho,51
+Alvarinho Reserva Vinho Verde,branco,leve,media,cítrico e mineral,Alvarinho,121
+Alvarinho Gran Reserva Vinho Verde,branco,leve,alta,cítrico e mineral,Alvarinho,298
+Chardonnay Chablis,branco,medio,baixa,maçã verde e mineral,Chardonnay,57
+Chardonnay Reserva Chablis,branco,medio,media,maçã verde e mineral,Chardonnay,158
+Chardonnay Gran Reserva Chablis,branco,medio,alta,maçã verde e mineral,Chardonnay,429
+Chardonnay Chile,branco,medio,baixa,maçã verde e mineral,Chardonnay,53
+Chardonnay Reserva Chile,branco,medio,media,maçã verde e mineral,Chardonnay,144
+Chardonnay Gran Reserva Chile,branco,medio,alta,maçã verde e mineral,Chardonnay,293
+Chardonnay Reserva Serra Gaúcha,branco,medio,media,maçã verde e mineral,Chardonnay,125
+Chardonnay barricado Borgonha,branco,encorpado,baixa,manteiga e baunilha,Chardonnay,74
+Chardonnay barricado Reserva Borgonha,branco,encorpado,media,manteiga e baunilha,Chardonnay,121
+Chardonnay barricado Gran Reserva Borgonha,branco,encorpado,alta,manteiga e baunilha,Chardonnay,238
+Chardonnay barricado Napa,branco,encorpado,baixa,manteiga e baunilha,Chardonnay,73
+Chardonnay barricado Reserva Napa,branco,encorpado,media,manteiga e baunilha,Chardonnay,160
+Chardonnay barricado Gran Reserva Napa,branco,encorpado,alta,manteiga e baunilha,Chardonnay,250
+Viognier Rhône,branco,medio,baixa,damasco e flores,Viognier,48
+Viognier Reserva Rhône,branco,medio,media,damasco e flores,Viognier,173
+Viognier Gran Reserva Rhône,branco,medio,alta,damasco e flores,Viognier,476
+Gewürztraminer Alsácia,branco,medio,baixa,lichia e especiarias,Gewürztraminer,45
+Gewürztraminer Reserva Alsácia,branco,medio,media,lichia e especiarias,Gewürztraminer,101
+Gewürztraminer Gran Reserva Alsácia,branco,medio,alta,lichia e especiarias,Gewürztraminer,321
+Chenin Blanc Loire,branco,medio,baixa,mel e maçã,Chenin Blanc,55
+Chenin Blanc Reserva Loire,branco,medio,media,mel e maçã,Chenin Blanc,142
+Chenin Blanc Gran Reserva Loire,branco,medio,alta,mel e maçã,Chenin Blanc,448
+Chenin Blanc África do Sul,branco,medio,baixa,mel e maçã,Chenin Blanc,75
+Chenin Blanc Reserva África do Sul,branco,medio,media,mel e maçã,Chenin Blanc,117
+Chenin Blanc Gran Reserva África do Sul,branco,medio,alta,mel e maçã,Chenin Blanc,405
+Rosé Provence,rose,leve,baixa,morango e seco,Grenache e Syrah,48
+Rosé Reserva Provence,rose,leve,media,morango e seco,Grenache e Syrah,111
+Rosé Gran Reserva Provence,rose,leve,alta,morango e seco,Grenache e Syrah,394
+Rosé Navarra,rose,leve,baixa,morango e seco,Grenache e Syrah,45
+Rosé Reserva Navarra,rose,leve,media,morango e seco,Grenache e Syrah,139
+Rosé Gran Reserva Navarra,rose,leve,alta,morango e seco,Grenache e Syrah,335
+Rosé Reserva Serra Gaúcha,rose,leve,media,morango e seco,Grenache e Syrah,148
+Espumante Brut Serra Gaúcha,espumante,leve,baixa,borbulhas finas e cítrico,Chardonnay e Pinot Noir,63
+Espumante Brut Reserva Serra Gaúcha,espumante,leve,media,borbulhas finas e cítrico,Chardonnay e Pinot Noir,144
+Espumante Brut Gran Reserva Serra Gaúcha,espumante,leve,alta,borbulhas finas e cítrico,Chardonnay e Pinot Noir,449
+Espumante Brut Cava,espumante,leve,baixa,borbulhas finas e cítrico,Chardonnay e Pinot Noir,54
+Espumante Brut Reserva Cava,espumante,leve,media,borbulhas finas e cítrico,Chardonnay e Pinot Noir,114
+Espumante Brut Gran Reserva Cava,espumante,leve,alta,borbulhas finas e cítrico,Chardonnay e Pinot Noir,351
+Prosecco Vêneto,espumante,leve,baixa,pera e floral,Glera,58
+Prosecco Reserva Vêneto,espumante,leve,media,pera e floral,Glera,97
+Prosecco Gran Reserva Vêneto,espumante,leve,alta,pera e floral,Glera,477
+Champagne Brut Champagne,espumante,leve,baixa,brioche e acidez elegante,Chardonnay e Pinot Noir,48
+Champagne Brut Reserva Champagne,espumante,leve,media,brioche e acidez elegante,Chardonnay e Pinot Noir,130
+Champagne Brut Gran Reserva Champagne,espumante,leve,alta,brioche e acidez elegante,Chardonnay e Pinot Noir,229

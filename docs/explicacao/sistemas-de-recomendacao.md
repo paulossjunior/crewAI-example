@@ -119,6 +119,37 @@ o fork `rectools-lightfm`, mantido pela equipe do RecTools, com a mesma API (`im
 
 ---
 
+## O que muda com a base grande
+
+A base `large` foi gerada para que cada modelo tenha estrutura real para aprender: usuários vêm de
+nove "arquétipos" de gosto (carnívoro, vegetariano, frutos do mar, apimentado…), as notas dependem
+da afinidade com a culinária, da qualidade do restaurante e do viés de quem avalia, e os pedidos de
+vinho são **simulados a partir das regras de harmonização** da feature 001, com ruído. As regras que
+antes recomendavam diretamente passaram a gerar o histórico do qual o ALS aprende — o conhecimento
+explícito vira dado implícito.
+
+Gerar esses dados expôs dois problemas clássicos que não apareciam nos dados de brinquedo:
+
+- **Viés de popularidade.** Na primeira versão do gerador, os pedidos favoreciam vinhos populares, e
+  três garrafas dominavam as recomendações de quase todos os pratos. O ALS estava certo — aprendeu o
+  que os dados diziam. A correção foi no gerador (amostragem ponderada por afinidade ao quadrado),
+  não no modelo: um lembrete de que um recomendador reproduz os vieses dos seus dados.
+- **Esparsidade.** Com ~14 notas por usuário espalhadas em ~400 restaurantes, o Pearson saía 1,00
+  entre usuários que tinham só 1 ou 2 restaurantes em comum — similaridade "perfeita" sem evidência.
+  Duas medidas resolveram: `min_support=3` (similaridades com menos de 3 itens em comum valem zero)
+  e mais densidade (15–35 notas por usuário, 90% na própria cidade). Na base large, o KNN usa k=10
+  vizinhos (contra 3 na toy). Ainda assim, cerca de um quarto dos restaurantes recomendados cai no
+  fallback por popularidade — o que é realista: a filtragem colaborativa só personaliza onde há
+  sobreposição suficiente de notas.
+
+## Ingredientes e preços
+
+Pratos têm ingredientes e preço, vinhos têm uva e preço da garrafa, restaurantes têm ticket médio.
+Esses campos **não entram nos modelos** — LightFM usa os atributos de sabor (`tags`, proteína,
+molho), o ALS só olha pedidos e o KNN só olha notas. Eles são exibidos no plano e usados pelo
+Anfitrião para calcular o custo de prato + vinho. A faixa categórica `baixa/media/alta` continua
+sendo o filtro de preço dos vinhos.
+
 ## Comparação
 
 | | Surprise (KNN) | implicit (ALS) | LightFM (híbrido) |

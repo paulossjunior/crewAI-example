@@ -1,38 +1,75 @@
+# Task definitions for the dinner pairing crew, loaded by @CrewBase in crew.py.
+# Tasks run sequentially in the order of the @task methods in crew.py; `context` passes the
+# outputs of previous tasks into a task's prompt.
+# {placeholders} are filled by main.py via kickoff(inputs=...):
+#   - {preferences_list}, {restrictions_list}, {user_id_json}: JSON forms, so the LLM passes
+#     exact tool arguments.
+#   - {preferences}, {restrictions}, {user_id}: human-readable forms (used in agents.yaml).
+#   - {price}, {city}: wine price range and restaurant city.
+#   - {dish_instruction}: pick the 1st dish returned, or the dish the user pinned with --dish.
+
+# Step 1: food_sommelier recommends the main dish via the LightFM tool.
 recommend_dish:
   description: >
     Use a ferramenta food_lightfm_recommender com preferences={preferences_list},
     restrictions={restrictions_list} e user_id={user_id_json}. {dish_instruction}
-    Informe os 3 pratos retornados (com score) e indique o prato escolhido, sua culinária e a
+    Informe os 3 pratos retornados e, para cada um, os ingredientes (attributes.ingredients) e o
+    preço (attributes.price_brl, em R$). Indique o prato escolhido, sua culinária e a
     justificativa da ferramenta. Repasse qualquer "warning".
   expected_output: >
-    Prato escolhido (nome exato e culinária), 3 candidatos com score e justificativa mencionando
-    "LightFM (modelo híbrido)".
+    Prato escolhido (nome exato, culinária, ingredientes, preço em R$), os 3 candidatos com
+    ingredientes e preço, e a justificativa mencionando "LightFM (modelo híbrido)".
   agent: food_sommelier
 
+# Step 2: wine_sommelier pairs a wine with the dish chosen in recommend_dish (implicit tool).
 pair_wine:
   description: >
     Use a ferramenta wine_implicit_recommender com dish_name = nome exato do prato escolhido na
-    tarefa anterior e price="{price}". Escolha o melhor vinho e explique a justificativa da
-    ferramenta (histórico de pedidos, pratos parecidos). Repasse qualquer "warning".
+    tarefa anterior e price="{price}". Escolha o 1º vinho retornado e explique a justificativa da
+    ferramenta PARA ELE e para cada alternativa (quantas vezes foi pedido com o prato, pratos com
+    padrão de pedidos parecido). Informe uva (attributes.grape) e preço da garrafa
+    (attributes.price_brl, em R$) de cada vinho. Repasse qualquer "warning".
   expected_output: >
-    Vinho escolhido (nome exato, tipo, corpo, preço), alternativas e justificativa mencionando
-    "implicit (ALS, feedback implícito)".
+    Vinho escolhido (nome exato, uva, tipo, corpo, preço em R$ e justificativa), alternativas com
+    uva, preço e justificativa, mencionando "implicit (ALS sobre histórico de pedidos por prato)".
   agent: wine_sommelier
   context:
     - recommend_dish
 
-recommend_restaurant_and_compose_plan:
+# Step 3: concierge recommends the restaurant via the Surprise tool.
+recommend_restaurant:
   description: >
     Use a ferramenta restaurant_surprise_recommender com cuisine = culinária do prato escolhido,
-    city="{city}" e user_id={user_id_json}. Depois monte o plano de jantar final em markdown, em
-    português, com exatamente estas seções: "## 🍽️ Prato", "## 🍷 Vinho", "## 📍 Restaurante".
-    Cada seção traz o item escolhido, as alternativas e uma linha "**Recomendador:** ..." nomeando
-    a biblioteca e a técnica (LightFM — híbrido; implicit — ALS com feedback implícito;
-    Surprise — KNN com notas explícitas) e explicando por que ela levou à sugestão. Inclua avisos
-    ("warning") das ferramentas. Cite apenas itens retornados pelas ferramentas.
+    city="{city}" e user_id={user_id_json}. Para cada restaurante retornado, informe bairro,
+    cidade, ticket médio por pessoa (attributes.avg_ticket_brl, em R$), a nota prevista e os
+    usuários parecidos citados na justificativa. Repasse qualquer "warning".
   expected_output: >
-    Plano de jantar em markdown com as três seções e o recomendador de cada uma.
+    Restaurante escolhido e alternativas, com bairro, ticket médio em R$, nota prevista e
+    justificativa mencionando "Surprise (KNN com notas explícitas)".
   agent: concierge
   context:
     - recommend_dish
+
+# Step 4: host gathers the three answers into a human summary plus a detailed plan (no tool).
+write_summary:
+  description: >
+    Com base nas respostas dos três especialistas, escreva o plano de jantar final em markdown, em
+    português do Brasil, com exatamente estas seções:
+    "## 🗣️ Resumo do anfitrião" — 1 parágrafo caloroso e natural (4 a 6 frases) que apresenta o
+    prato, o vinho e o restaurante como uma conversa, cita alguns ingredientes, os preços e o
+    custo aproximado de prato + vinho;
+    "## 🍽️ Prato", "## 🍷 Vinho", "## 📍 Restaurante" — cada uma com o item escolhido, seus
+    ingredientes ou uva, o preço em R$, as alternativas (também com preço) e, no fim da seção,
+    UMA linha de recomendador, exatamente assim:
+    na seção Prato: "**Recomendador:** LightFM — modelo híbrido (curtidas + atributos dos pratos + preferências)";
+    na seção Vinho: "**Recomendador:** implicit — ALS sobre histórico de pedidos por prato";
+    na seção Restaurante: "**Recomendador:** Surprise — KNN user-based com notas explícitas".
+    Inclua os avisos ("warning") recebidos. Use apenas itens, ingredientes e preços que aparecem
+    nas respostas.
+  expected_output: >
+    Plano de jantar em markdown com o resumo do anfitrião e as três seções detalhadas.
+  agent: host
+  context:
+    - recommend_dish
     - pair_wine
+    - recommend_restaurant

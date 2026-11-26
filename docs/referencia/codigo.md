@@ -5,19 +5,26 @@ Pacote `dinner_crew` em `src/dinner_crew/`.
 ```text
 src/dinner_crew/
 ├── models.py                       vocabulários, Item, Recommendation
+├── intake.py                       DinnerRequest, RequestParser (texto livre → pedido)
+├── pipeline.py                     Recommenders, run_recommenders, render_plan, build_crew_inputs
+├── app.py                          interface Streamlit
 ├── data.py                         leitura de data/
 ├── recommenders/
 │   ├── food_lightfm.py             FoodRecommender        (LightFM)
 │   ├── wine_implicit.py            WineRecommender        (implicit)
 │   └── restaurant_surprise.py      RestaurantRecommender  (Surprise)
 ├── tools/recommender_tools.py      3 tools CrewAI
-├── config/agents.yaml              3 agentes
-├── config/tasks.yaml               3 tarefas
+├── config/agents.yaml              4 agentes (3 especialistas + Anfitrião)
+├── config/tasks.yaml               4 tarefas
 ├── crew.py                         DinnerCrew, build_llm
 └── main.py                         CLI
 ```
 
 Os módulos em `recommenders/` não importam `crewai`.
+
+**Atributos expostos nos itens:** pratos — `cuisine`, `protein`, `sauce`, `intensity`,
+`ingredients`, `price_brl`; vinhos — `type`, `body`, `price`, `notes`, `grape`, `price_brl`;
+restaurantes — `cuisine`, `city`, `neighborhood`, `price`, `avg_ticket_brl`.
 
 ---
 
@@ -61,16 +68,21 @@ Métodos: `to_dict() -> dict`, `to_json() -> str` (UTF-8, `indent=2`).
 
 `DATA_DIR` — `Path` para `data/` na raiz do repositório.
 
-Todas as funções aceitam `data_dir: Path | None = None` (padrão `DATA_DIR`).
+`DATASETS` — `{"toy": data/, "large": data/large/}`.
+
+`dataset_dir(name=None) -> Path` — pasta da base `name`; sem nome, usa `$DINNER_DATASET` e depois
+`"toy"`. `ValueError` para nome desconhecido.
+
+Todas as funções de carga aceitam `data_dir: Path | None = None` (padrão `dataset_dir()`).
 
 | Função | Retorno | Conversões |
 |---|---|---|
-| `load_dishes()` | `list[dict]` | `tags` e `suitable_for` → `list[str]` |
-| `load_wines()` | `list[dict]` | — |
+| `load_dishes()` | `list[dict]` | `tags`, `suitable_for`, `ingredients` → `list[str]`; `price_brl` → `int` |
+| `load_wines()` | `list[dict]` | `price_brl` → `int` |
 | `load_user_profiles()` | `dict[str, list[str]]` | `user_id` → termos |
 | `load_dish_likes()` | `list[dict]` | — |
 | `load_wine_orders()` | `list[dict]` | `count` → `int` |
-| `load_restaurants()` | `list[dict]` | — |
+| `load_restaurants()` | `list[dict]` | `avg_ticket_brl` → `int` |
 | `load_ratings()` | `list[dict]` | `rating` → `int` |
 
 ---
@@ -91,12 +103,13 @@ Termos normalizados de um prato: `cuisine`, `protein`, `sauce`, `intensity` e `t
 ### `class FoodRecommender`
 
 ```python
-FoodRecommender(dishes=None, profiles=None, likes=None, epochs=150, seed=42)
+FoodRecommender(dishes=None, profiles=None, likes=None, epochs=150, seed=42, data_dir=None)
 ```
 
 | Parâmetro | Padrão | Descrição |
 |---|---|---|
-| `dishes`, `profiles`, `likes` | lidos de `data/` | dados de treino (injeção para testes) |
+| `dishes`, `profiles`, `likes` | lidos de `data_dir` | dados de treino (injeção para testes) |
+| `data_dir` | `dataset_dir()` | base usada para o que não foi injetado |
 | `epochs` | `150` | épocas de treino |
 | `seed` | `42` | `random_state` do LightFM |
 
@@ -141,7 +154,7 @@ Constantes: `MIN_RELATIVE_SCORE = 0.3`, `WEAK_SIGNAL = 0.2`.
 ### `class WineRecommender`
 
 ```python
-WineRecommender(dishes=None, wines=None, orders=None, factors=8, seed=42)
+WineRecommender(dishes=None, wines=None, orders=None, factors=8, seed=42, data_dir=None)
 ```
 
 Treino no construtor: matriz esparsa prato×vinho com `count` como valor;
@@ -190,7 +203,8 @@ RestaurantRecommender(data_dir=None, neighbors=3)
 ```
 
 Treino no construtor: `ratings.csv` lido com `Dataset.load_from_file` (escala 1–5);
-`KNNWithMeans(k=neighbors, sim_options={"name": "pearson", "user_based": True})`.
+`KNNWithMeans(k=neighbors, sim_options={"name": "pearson", "user_based": True, "min_support": 3})`.
+`MIN_SUPPORT = 3`: similaridades calculadas com menos de 3 restaurantes em comum valem 0.
 
 Atributos públicos: `restaurants`, `trainset`, `algo`, `rated` (`dict[user, set[restaurante]]`),
 `own_rating` (`dict[(user, restaurante), nota]`), `item_mean` (`dict[restaurante, média]`).
@@ -230,8 +244,9 @@ Os dois últimos casos acrescentam `Fallback por popularidade (<motivo>).` ao `w
 
 [recommender_tools.py](../../src/dinner_crew/tools/recommender_tools.py)
 
-Factories com `functools.cache` (um modelo treinado por processo): `food_recommender()`,
-`wine_recommender()`, `restaurant_recommender()`.
+`recommenders()` devolve um `pipeline.Recommenders` da base em `$DINNER_DATASET`, treinado uma vez
+por base e processo (cache por base, para a interface poder trocar de base). `food_recommender()`,
+`wine_recommender()` e `restaurant_recommender()` devolvem cada modelo dele.
 
 Tools (subclasses de `crewai.tools.BaseTool`); `_run` devolve `Recommendation.to_json()`:
 
@@ -262,12 +277,17 @@ Lê `config/agents.yaml` e `config/tasks.yaml`.
 | `food_sommelier` | `FoodLightFMTool` |
 | `wine_sommelier` | `WineImplicitTool` |
 | `concierge` | `RestaurantSurpriseTool` |
+| `host` (Anfitrião) | nenhuma |
 
 | Tarefa (`@task`), em ordem | Agente | `context` |
 |---|---|---|
 | `recommend_dish` | `food_sommelier` | — |
 | `pair_wine` | `wine_sommelier` | `recommend_dish` |
-| `recommend_restaurant_and_compose_plan` | `concierge` | `recommend_dish`, `pair_wine` |
+| `recommend_restaurant` | `concierge` | `recommend_dish` |
+| `write_summary` | `host` | `recommend_dish`, `pair_wine`, `recommend_restaurant` |
+
+`write_summary` produz a saída final: seções `🗣️ Resumo do anfitrião`, `🍽️ Prato`, `🍷 Vinho` e
+`📍 Restaurante`, com ingredientes/uva, preços e uma linha **Recomendador** por seção.
 
 `crew()` devolve `Crew(process=Process.sequential, verbose=False)`.
 
@@ -286,6 +306,80 @@ Preenchidos por `main.py` em `kickoff(inputs=...)`:
 
 ---
 
+## `dinner_crew.intake`
+
+[intake.py](../../src/dinner_crew/intake.py)
+
+### `DinnerRequest` (dataclass)
+
+| Campo | Tipo | Padrão |
+|---|---|---|
+| `preferences` | `list[str]` | `[]` |
+| `restrictions` | `list[str]` | `[]` |
+| `price` | `str` | `"media"` |
+| `city` | `str` | `"São Paulo"` |
+| `user_id` | `str \| None` | `None` |
+| `dish` | `str \| None` | `None` (prato fixado) |
+
+### `class RequestParser`
+
+`RequestParser(data_dir=None)` constrói o vocabulário a partir de `user_profiles.csv` (termos),
+`restaurants.csv` (cidades) e `dishes.csv` (nomes) da base indicada. Atributo público: `vocab` (`set[str]`, termos normalizados).
+
+#### `parse(text, previous=None) -> ParseResult`
+
+Devolve `ParseResult(request, understood)`: o pedido mesclado sobre `previous` e a lista de
+mudanças em português. Regras:
+
+| Detectado | Efeito |
+|---|---|
+| nome exato de prato (o mais longo que aparecer) | `dish` = prato |
+| termos do vocabulário (tolerância singular/plural; ignora `CONTEXT_WORDS`) | substituem `preferences`; soltam `dish` se nenhum prato foi citado |
+| `RESTRICTION_PATTERNS` | acrescentados a `restrictions` |
+| `PRICE_PATTERNS` (primeiro que casar: baixa, alta, media) | `price` |
+| nome de cidade ou `CITY_ALIASES` (`sp`, `rio`, `rj`) | `city` |
+| `u<número>` | `user_id` |
+
+`norm(text)` — minúsculas, sem acentos.
+
+---
+
+## `dinner_crew.pipeline`
+
+[pipeline.py](../../src/dinner_crew/pipeline.py)
+
+| Nome | Descrição |
+|---|---|
+| `Recommenders(dataset="toy")` | treina os três modelos na base indicada; atributos `dataset`, `food`, `wine`, `restaurant`, `dishes` |
+| `KNN_NEIGHBORS` | `{"toy": 3, "large": 10}` — `k` do Surprise por base |
+| `run_recommenders(req, recs) -> dict` | `{"food", "chosen_dish", "wine", "restaurant"}` (mesmo formato do `--dry-run`); `chosen_dish=None` e `wine`/`restaurant=None` se nenhum prato atende às restrições |
+| `summarize(result, req=None) -> str` | versão offline do Anfitrião: parágrafo com prato, vinho, restaurante, preços e total prato + vinho; cita só as preferências que aparecem no prato |
+| `render_plan(result, req=None) -> str` | plano em markdown, sem LLM: resumo + seções com ingredientes/uva, preços, alternativas, linha **Recomendador** e avisos |
+| `brl(value) -> str` | formata reais: `brl(1250) == "R$ 1.250"` |
+| `build_crew_inputs(req) -> dict` | valores dos placeholders dos YAML (ver tabela em `dinner_crew.crew`) |
+| `RECOMMENDER_LABELS` | descrição de cada biblioteca usada em `render_plan` |
+
+---
+
+## `dinner_crew.app`
+
+[app.py](../../src/dinner_crew/app.py) — interface Streamlit (`uv run streamlit run src/dinner_crew/app.py`).
+
+| Elemento | Chave em `st.session_state` |
+|---|---|
+| modo (`Sem IA (offline)` / `Com IA (CrewAI + OpenAI)`) | `mode` |
+| base de dados (`toy` / `large`) | `dataset` |
+| usuário, cidade, preço, restrições, preferências | `user`, `city`, `price`, `restrictions`, `preferences` |
+| prato fixado | `dish` |
+| histórico do chat (`role`, `content`, `raw`) | `messages` |
+| mensagem enviada | `chat_input` |
+
+Modelos e parser ficam em `st.cache_resource`, um por base. Ao trocar de base, usuário, cidade,
+preferências e prato fixado que não existam na nova base são limpos. A mensagem enviada é
+processada antes de o painel ser desenhado, para que o pedido interpretado atualize os widgets.
+
+---
+
 ## `dinner_crew.main`
 
 [main.py](../../src/dinner_crew/main.py)
@@ -294,7 +388,7 @@ Preenchidos por `main.py` em `kickoff(inputs=...)`:
 |---|---|
 | `parse_args(argv=None) -> Namespace` | define as opções da CLI ([Referência da CLI](cli.md)) |
 | `fail(message, code) -> int` | escreve `Erro: <message>` em stderr e devolve `code` |
-| `main(argv=None) -> int` | valida entradas, roda recomendadores; com `--dry-run` imprime JSON, senão monta e executa a crew |
+| `main(argv=None) -> int` | valida entradas, define `DINNER_DATASET` a partir de `--dataset`, monta um `DinnerRequest`, chama `pipeline.run_recommenders`; com `--dry-run` imprime JSON, senão executa a crew com `pipeline.build_crew_inputs` |
 
 `crewai` só é importado dentro de `main()` quando a crew vai rodar (import lento).
 
@@ -310,4 +404,7 @@ Preenchidos por `main.py` em `kickoff(inputs=...)`:
 | `test_wine_implicit.py` | tipo do vinho, faixa de preço, relaxamento, sinal fraco, erro, determinismo |
 | `test_restaurant_surprise.py` | vizinhos, fallbacks, revisita, outras cidades, escala 1–5, determinismo |
 | `test_tools.py` | nomes, descrições e JSON das tools |
-| `test_cli.py` | códigos de saída, `--dry-run`, montagem da crew sem `kickoff` |
+| `test_cli.py` | códigos de saída, `--dry-run`, montagem da crew (4 agentes, Anfitrião sem tool) sem `kickoff` |
+| `test_intake.py` | extração de preferências, restrições, preço, cidade, usuário; contexto entre mensagens |
+| `test_pipeline_app.py` | plano e resumo por template, inputs da crew, fluxo do chat e troca de base via `streamlit.testing.v1.AppTest` |
+| `test_large_dataset.py` | base large igual à saída do gerador, tamanhos, integridade referencial, ingredientes/preços, recomendações coerentes |

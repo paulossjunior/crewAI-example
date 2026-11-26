@@ -1,20 +1,20 @@
-name,cuisine,protein,sauce,intensity,tags,suitable_for
-Risoto de cogumelos,italiana,vegetal,cremoso,media,cogumelos;arroz;parmesão;ervas;manteiga,vegetariano;sem_gluten
-Spaghetti al pomodoro,italiana,vegetal,tomate,leve,massa;tomate;manjericão;azeite;alho,vegetariano;vegano;sem_lactose
-Lasanha à bolonhesa,italiana,carne_vermelha,tomate,intensa,massa;carne;tomate;queijo;forno,
-Fettuccine ao funghi,italiana,vegetal,cremoso,media,massa;cogumelos;creme;parmesão;trufa,vegetariano
-Sushi de salmão,japonesa,peixe,leve,leve,salmão;arroz;peixe;cru;wasabi,sem_lactose
-Lámen de porco,japonesa,porco,intenso,intensa,porco;caldo;macarrão;ovo;umami,sem_lactose
-Tempurá de legumes,japonesa,vegetal,leve,leve,legumes;frito;crocante;shoyu,vegetariano;vegano;sem_lactose
-Feijoada,brasileira,porco,intenso,intensa,feijão;porco;defumado;linguiça;carne;laranja,sem_gluten;sem_lactose
-Moqueca de peixe,brasileira,peixe,picante,media,peixe;dendê;coco;pimenta;coentro,sem_gluten;sem_lactose
-Bobó de camarão,brasileira,frutos_do_mar,cremoso,media,camarão;mandioca;coco;dendê,sem_gluten;sem_lactose
-Picanha na brasa,brasileira,carne_vermelha,leve,intensa,carne;churrasco;brasa;sal_grosso;defumado,sem_gluten;sem_lactose
-Bife ancho com chimichurri,argentina,carne_vermelha,intenso,intensa,carne;grelhado;chimichurri;ervas;alho,sem_gluten;sem_lactose
-Coq au vin,francesa,ave,intenso,media,frango;vinho;cogumelos;bacon;ensopado,sem_gluten;sem_lactose
-Ratatouille,francesa,vegetal,tomate,leve,berinjela;abobrinha;tomate;ervas;azeite,vegetariano;vegano;sem_gluten;sem_lactose
-Salmão na manteiga de limão,francesa,peixe,cremoso,media,salmão;manteiga;limão;ervas,sem_gluten
-Tacos de carnitas,mexicana,porco,picante,media,porco;tortilla;pimenta;coentro;limão,sem_lactose
-Enchiladas de queijo,mexicana,queijo,picante,media,queijo;tortilla;pimenta;tomate;forno,vegetariano
-Falafel com homus,árabe,vegetal,leve,leve,grão_de_bico;tahine;ervas;frito;limão,vegetariano;vegano;sem_lactose
-Kafta grelhada,árabe,carne_vermelha,leve,media,carne;cordeiro;grelhado;especiarias;hortelã,sem_gluten;sem_lactose
+name,cuisine,protein,sauce,intensity,tags,suitable_for,ingredients,price_brl
+Risoto de cogumelos,italiana,vegetal,cremoso,media,cogumelos;arroz;parmesão;ervas;manteiga,vegetariano;sem_gluten,arroz arbóreo;cogumelos frescos;parmesão;manteiga;ervas;vinho branco,62
+Spaghetti al pomodoro,italiana,vegetal,tomate,leve,massa;tomate;manjericão;azeite;alho,vegetariano;vegano;sem_lactose,spaghetti;tomate italiano;manjericão;azeite;alho,42
+Lasanha à bolonhesa,italiana,carne_vermelha,tomate,intensa,massa;carne;tomate;queijo;forno,,massa fresca;ragu de carne;molho de tomate;queijo;bechamel,58
+Fettuccine ao funghi,italiana,vegetal,cremoso,media,massa;cogumelos;creme;parmesão;trufa,vegetariano,fettuccine;funghi secchi;creme de leite;parmesão;azeite trufado,64
+Sushi de salmão,japonesa,peixe,leve,leve,salmão;arroz;peixe;cru;wasabi,sem_lactose,arroz japonês;salmão fresco;alga nori;wasabi;shoyu,72
+Lámen de porco,japonesa,porco,intenso,intensa,porco;caldo;macarrão;ovo;umami,sem_lactose,macarrão lámen;barriga de porco;caldo de ossos;ovo marinado;cebolinha,54
+Tempurá de legumes,japonesa,vegetal,leve,leve,legumes;frito;crocante;shoyu,vegetariano;vegano;sem_lactose,legumes da estação;massa de tempurá;molho tentsuyu,38
+Feijoada,brasileira,porco,intenso,intensa,feijão;porco;defumado;linguiça;carne;laranja,sem_gluten;sem_lactose,feijão preto;costela e lombo de porco;linguiça;bacon;laranja;couve,59
+Moqueca de peixe,brasileira,peixe,picante,media,peixe;dendê;coco;pimenta;coentro,sem_gluten;sem_lactose,peixe branco;leite de coco;azeite de dendê;pimentão;coentro;pimenta,78
+Bobó de camarão,brasileira,frutos_do_mar,cremoso,media,camarão;mandioca;coco;dendê,sem_gluten;sem_lactose,camarão;mandioca;leite de coco;azeite de dendê;cebola,82
+Picanha na brasa,brasileira,carne_vermelha,leve,intensa,carne;churrasco;brasa;sal_grosso;defumado,sem_gluten;sem_lactose,picanha;sal grosso;farofa;vinagrete,96
+Bife ancho com chimichurri,argentina,carne_vermelha,intenso,intensa,carne;grelhado;chimichurri;ervas;alho,sem_gluten;sem_lactose,bife ancho;chimichurri;alho;batatas rústicas,98
+Coq au vin,francesa,ave,intenso,media,frango;vinho;cogumelos;bacon;ensopado,sem_gluten;sem_lactose,frango;vinho tinto;cogumelos;bacon;cebolas pérola;ervas,76
+Ratatouille,francesa,vegetal,tomate,leve,berinjela;abobrinha;tomate;ervas;azeite,vegetariano;vegano;sem_gluten;sem_lactose,berinjela;abobrinha;pimentão;tomate;ervas de Provence;azeite,46
+Salmão na manteiga de limão,francesa,peixe,cremoso,media,salmão;manteiga;limão;ervas,sem_gluten,salmão;manteiga;limão siciliano;alcaparras;ervas,84
+Tacos de carnitas,mexicana,porco,picante,media,porco;tortilla;pimenta;coentro;limão,sem_lactose,tortilla de milho;porco desfiado;cebola roxa;coentro;limão;pimenta,44
+Enchiladas de queijo,mexicana,queijo,picante,media,queijo;tortilla;pimenta;tomate;forno,vegetariano,tortilla de milho;queijo;molho de pimenta;tomate;creme azedo,40
+Falafel com homus,árabe,vegetal,leve,leve,grão_de_bico;tahine;ervas;frito;limão,vegetariano;vegano;sem_lactose,grão-de-bico;tahine;ervas;limão;pão sírio sem glúten,36
+Kafta grelhada,árabe,carne_vermelha,leve,media,carne;cordeiro;grelhado;especiarias;hortelã,sem_gluten;sem_lactose,carne moída de cordeiro;especiarias árabes;hortelã;cebola;coalhada seca,48

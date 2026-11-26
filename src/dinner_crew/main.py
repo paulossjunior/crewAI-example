@@ -1,4 +1,10 @@
-"""CLI entry point: ``uv run dinner-crew --prefs "cogumelos,cremoso" --user u1``."""
+"""CLI entry point: ``uv run dinner-crew --prefs "cogumelos,cremoso" --user u1``.
+
+Builds a dinner plan (dish, wine, restaurant). By default it runs the three-agent
+CrewAI crew, which needs ``OPENAI_API_KEY``. With ``--dry-run`` it calls the three
+recommenders (LightFM food, implicit wine, Surprise restaurant) directly, skips the
+LLM, and prints their results as JSON.
+"""
 
 from __future__ import annotations
 
@@ -9,18 +15,36 @@ import sys
 
 from dotenv import load_dotenv
 
-from dinner_crew.data import load_dishes
+from dinner_crew.data import DATASETS, dataset_dir, load_dishes
+from dinner_crew.intake import DinnerRequest
 from dinner_crew.models import PRICES, RESTRICTIONS
-from dinner_crew.recommenders.food_lightfm import FoodRecommender
-from dinner_crew.recommenders.restaurant_surprise import RestaurantRecommender
-from dinner_crew.recommenders.wine_implicit import WineRecommender
+from dinner_crew.pipeline import Recommenders, build_crew_inputs, run_recommenders
 
 
 def _csv(value: str | None) -> list[str]:
+    """Split a comma-separated string into a list of trimmed, non-empty items.
+
+    Args:
+        value: Raw comma-separated text, or ``None``.
+
+    Returns:
+        The stripped items in their original order. Empty when ``value`` is ``None``
+        or has no non-blank items.
+    """
     return [v.strip() for v in (value or "").split(",") if v.strip()]
 
 
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
+    """Parse the ``dinner-crew`` command-line arguments.
+
+    Args:
+        argv: Arguments to parse, without the program name. ``None`` means ``sys.argv[1:]``.
+
+    Returns:
+        A namespace with ``prefs``, ``restrictions``, ``price``, ``city``, ``user``,
+        ``dish`` and ``dry_run``. ``prefs`` and ``restrictions`` are still raw
+        comma-separated strings at this point.
+    """
     p = argparse.ArgumentParser(prog="dinner-crew", description="Monta um plano de jantar com 3 agentes CrewAI.")
     p.add_argument("--prefs", default="", help='termos separados por vírgula, ex.: "cogumelos,cremoso"')
     p.add_argument("--restrictions", default="", help=f"separadas por vírgula: {', '.join(RESTRICTIONS)}")
@@ -28,16 +52,42 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     p.add_argument("--city", default="São Paulo")
     p.add_argument("--user", default=None, help="id do usuário, ex.: u1")
     p.add_argument("--dish", default=None, help="fixa o prato pelo nome exato")
+    p.add_argument("--dataset", default="toy", choices=sorted(DATASETS), help="base de dados: toy ou large")
     p.add_argument("--dry-run", action="store_true", help="só roda os recomendadores (sem LLM) e imprime JSON")
     return p.parse_args(argv)
 
 
 def fail(message: str, code: int) -> int:
+    """Print an error message to stderr and return the given exit code.
+
+    Args:
+        message: Text shown after the ``Erro:`` prefix.
+        code: Exit code to hand back to the caller.
+
+    Returns:
+        ``code`` unchanged, so callers can write ``return fail(...)``.
+    """
     print(f"Erro: {message}", file=sys.stderr)
     return code
 
 
 def main(argv: list[str] | None = None) -> int:
+    """Run the ``dinner-crew`` CLI.
+
+    Validates the input, trains the food recommender, and then either prints the
+    recommenders' output as JSON (``--dry-run``) or runs the CrewAI crew and prints
+    its final answer.
+
+    Args:
+        argv: Arguments to parse, without the program name. ``None`` means ``sys.argv[1:]``.
+
+    Returns:
+        The process exit code:
+
+        * ``0``: success.
+        * ``1``: no dish fits the restrictions and ``--dish`` was not given.
+        * ``2``: invalid input (unknown restriction or dish) or ``OPENAI_API_KEY`` is missing.
+    """
     args = parse_args(argv)
     load_dotenv()
 
@@ -46,25 +96,20 @@ def main(argv: list[str] | None = None) -> int:
     if invalid:
         return fail(f"restrição inválida {invalid}; use: {', '.join(RESTRICTIONS)}.", 2)
 
-    dishes = {d["name"]: d for d in load_dishes()}
+    # Check --dish against the CSV before training: it is cheap, and a typo fails fast.
+    # The crew's tools read the dataset from the environment (see tools/recommender_tools.py).
+    os.environ["DINNER_DATASET"] = args.dataset
+    dishes = {d["name"]: d for d in load_dishes(dataset_dir(args.dataset))}
     if args.dish and args.dish not in dishes:
         return fail(f"prato desconhecido {args.dish!r}; opções: {', '.join(sorted(dishes))}.", 2)
 
-    food_rec = FoodRecommender()
-
-    food = food_rec.recommend(prefs, restrictions, args.user)
-    if not food.items and not args.dish:
-        print(food.warning)
+    req = DinnerRequest(prefs, restrictions, args.price, args.city, args.user, args.dish)
+    result = run_recommenders(req, Recommenders(args.dataset))
+    if result["chosen_dish"] is None:
+        print(result["food"]["warning"])
         return 1
 
     if args.dry_run:
-        dish = dishes[args.dish or food.items[0].name]
-        result = {
-            "food": food.to_dict(),
-            "chosen_dish": dish["name"],
-            "wine": WineRecommender().recommend(dish["name"], args.price).to_dict(),
-            "restaurant": RestaurantRecommender().recommend(dish["cuisine"], args.city, args.user).to_dict(),
-        }
         print(json.dumps(result, ensure_ascii=False, indent=2))
         return 0
 
@@ -73,22 +118,8 @@ def main(argv: list[str] | None = None) -> int:
 
     from dinner_crew.crew import DinnerCrew  # lazy: crewai import is slow
 
-    dish_instruction = (
-        f'O usuário fixou o prato "{args.dish}": escolha exatamente esse prato.'
-        if args.dish
-        else "Escolha o 1º prato da lista retornada."
-    )
-    inputs = {
-        "preferences": ", ".join(prefs) or "(nenhuma)",
-        "restrictions": ", ".join(restrictions) or "(nenhuma)",
-        "preferences_list": json.dumps(prefs, ensure_ascii=False),
-        "restrictions_list": json.dumps(restrictions, ensure_ascii=False),
-        "dish_instruction": dish_instruction,
-        "price": args.price,
-        "city": args.city,
-        "user_id": args.user or "(novo usuário)",
-        "user_id_json": json.dumps(args.user),
-    }
+    # build_crew_inputs fills the {placeholders} in the YAML configs (see pipeline.py).
+    inputs = build_crew_inputs(req)
     output = DinnerCrew().crew().kickoff(inputs=inputs)
     print(output.raw)
     return 0

@@ -8,24 +8,32 @@ de recomendação clássicos, determinísticos e testáveis. A segunda é feita 
 movidos a LLM, que orquestram as chamadas e redigem o plano.
 
 ```text
-                ┌──────────────────────────── CLI (main.py) ────────────────────────────┐
-                │  valida entradas · --dry-run chama recomendadores direto · kickoff()  │
-                └───────────────────────────────────┬───────────────────────────────────┘
-                                                    │ inputs
- ┌──────────────────────────────── Crew (crew.py, processo sequencial) ─────────────────────────────┐
- │                                                                                                   │
- │  Food Sommelier ──context──▶ Wine Sommelier ──context──▶ Concierge ──▶ plano em markdown          │
- │       │ LLM                       │ LLM                       │ LLM                               │
- └───────┼───────────────────────────┼───────────────────────────┼───────────────────────────────────┘
-         ▼ tool call                 ▼ tool call                 ▼ tool call
-  food_lightfm_recommender   wine_implicit_recommender   restaurant_surprise_recommender   (tools/)
-         │                           │                           │
-  FoodRecommender             WineRecommender             RestaurantRecommender            (recommenders/)
-   LightFM                     implicit ALS                Surprise KNNWithMeans
-         │                           │                           │
-  dishes · user_profiles      dishes · wines              restaurants · ratings            (data/)
-  dish_likes                  wine_orders
+        ┌──────────── CLI (main.py) ────────────┐   ┌──────── Streamlit (app.py) ────────┐
+        │ opções → DinnerRequest · --dataset    │   │ texto livre → intake.py → Request  │
+        └───────────────────┬───────────────────┘   └─────────────────┬──────────────────┘
+                            └──────────────┬────────────────────────────┘
+                                           ▼
+                         pipeline.py (Recommenders por base · run · summarize · render)
+                          │ modo sem IA: resumo + plano por template
+                          │ modo com IA: kickoff(inputs) ▼
+ ┌──────────────────────────── Crew (crew.py, processo sequencial) ─────────────────────────────┐
+ │ Food Sommelier ─▶ Wine Sommelier ─▶ Concierge ─▶ Anfitrião (sem tool) ─▶ plano em markdown    │
+ │      │ tool            │ tool            │ tool        ▲ context das três tarefas             │
+ └──────┼─────────────────┼─────────────────┼─────────────────────────────────────────────────────┘
+        ▼                 ▼                 ▼
+   LightFM           implicit ALS     Surprise KNNWithMeans                      (recommenders/)
+        │                 │                 │
+   dishes · user_profiles · dish_likes · wines · wine_orders · restaurants · ratings
+        data/ (toy, à mão)   ou   data/large/ (gerada por scripts/generate_large_data.py)
 ```
+
+## Dois pontos de entrada, um pipeline
+
+A CLI (`main.py`) e a interface Streamlit (`app.py`) não têm lógica própria de recomendação:
+ambas montam um `DinnerRequest` e chamam `pipeline.py`. A diferença está só em como o pedido
+chega — opções de linha de comando ou texto livre interpretado por `intake.py` — e em como a
+resposta sai. O parser do chat é baseado em regras, não em LLM, para que a interface funcione
+offline e de forma previsível; o LLM entra apenas no modo "Com IA", redigindo o plano.
 
 ## As três camadas
 
@@ -51,8 +59,18 @@ culinária do prato. Um processo hierárquico, com um agente gerente decidindo a
 uma chamada de LLM e uma fonte de variação sem nenhum ganho. Com `Process.sequential`, a ordem é a
 dos métodos `@task`, e o `context` de cada tarefa entrega ao agente seguinte a saída das anteriores.
 
-A última tarefa acumula duas funções — recomendar o restaurante e compor o plano — para evitar um
-quarto agente que só formataria texto.
+## Por que um quarto agente, o Anfitrião
+
+Numa primeira versão, o Concierge recomendava o restaurante **e** redigia o plano final. Separar
+essas funções tem duas vantagens. Cada especialista fica com um só trabalho (chamar sua tool e
+justificar o resultado), o que deixa os prompts curtos e as saídas mais fiéis. E a redação final
+ganha um agente cujo único objetivo é escrever bem — um parágrafo caloroso com preços e o custo de
+prato + vinho — sem acesso a nenhuma tool, portanto sem como "buscar" algo novo: ele só pode
+reorganizar o que os especialistas entregaram, e o prompt proíbe acrescentar itens, ingredientes ou
+preços.
+
+O modo sem IA tem um equivalente: `pipeline.summarize()`, um template que produz o mesmo tipo de
+resumo a partir dos dados das três recomendações.
 
 ## Como o LLM é mantido "no chão"
 
@@ -80,11 +98,20 @@ reduz a variação do texto.
 
 ## Treinar a cada execução
 
-Não há modelo salvo em disco: cada processo treina os três modelos ao iniciar (menos de um
-segundo com os dados toy). Isso mantém o fluxo "edite o CSV, rode de novo" sem um passo de
-re-treino ou cache para invalidar. Dentro de um processo, as factories com `@cache` em
-`tools/recommender_tools.py` garantem que cada modelo treine uma só vez, mesmo que o agente chame a
-tool várias vezes.
+Não há modelo salvo em disco: cada processo treina os três modelos ao iniciar (≈0,1 s na base toy,
+≈2 s na large, quase tudo no LightFM). Isso mantém o fluxo "edite o CSV, rode de novo" sem um passo de
+re-treino ou cache para invalidar. Dentro de um processo, o cache por base em
+`tools/recommender_tools.py` (e o `st.cache_resource` na interface) garante que cada modelo treine
+uma só vez por base, mesmo que o agente chame a tool várias vezes.
+
+## Duas bases de dados
+
+A base `toy` existe para ler: dá para conferir cada recomendação à mão, e é nela que estão os
+exemplos da documentação e a maioria dos testes. A base `large` existe para ver os modelos
+trabalharem com volume — 1.500 usuários, ~37 mil notas — e é gerada por um script com semente fixa,
+não escrita à mão. Um teste garante que os CSVs commitados são exatamente a saída do script, então
+a base grande é reproduzível e revisável pelo código que a gera. Todos os módulos leem a base a
+partir de `dataset_dir()`, que segue `--dataset`, o seletor da interface ou `DINNER_DATASET`.
 
 Num sistema real, com milhões de interações, o treino seria um job separado e os modelos seriam
 carregados de um artefato versionado.
@@ -97,9 +124,10 @@ um erro de digitação em `--price` pagariam esse custo à toa.
 
 ## Limitações conhecidas
 
-- Os dados são pequenos e foram escritos à mão para codificar gostos plausíveis. Os modelos
-  "funcionam" porque os dados foram desenhados para isso; não há avaliação offline (precision@k,
-  RMSE) porque não haveria dados suficientes para separar treino e teste de forma significativa.
+- Os dados são sintéticos: a base toy foi escrita à mão e a large foi gerada a partir de perfis de
+  gosto e regras de harmonização. Os modelos "funcionam" porque os dados foram desenhados com
+  estrutura para eles aprenderem; ainda não há avaliação offline (precision@k, RMSE), que a base
+  large já permitiria fazer.
 - O LightFM recomenda pratos que o usuário já curtiu. Para um jantar isso é aceitável; num catálogo
   real, normalmente se filtrariam os itens já consumidos.
 - O filtro de cidade é por igualdade exata de texto.
