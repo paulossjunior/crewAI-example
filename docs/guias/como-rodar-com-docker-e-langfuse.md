@@ -68,6 +68,27 @@ Remova (ou comente) `LANGFUSE_PUBLIC_KEY` e `LANGFUSE_SECRET_KEY` do `.env`. Sem
 enviado. Se o Langfuse estiver fora do ar, a aplicação avisa uma vez no log e segue sem tracing,
 tentando de novo a cada 30 s.
 
+## Consultar traces pela API
+
+O Langfuse v4 roda em modo *events only*: os endpoints antigos (`/api/public/traces`,
+`/api/public/observations`) respondem 404. Use a API v2 de observações, com as chaves do projeto:
+
+```bash
+curl -u "$LANGFUSE_PUBLIC_KEY:$LANGFUSE_SECRET_KEY" \
+  "http://localhost:3000/api/public/v2/observations?name=dinner-plan&limit=5&fields=core,basic"
+```
+
+Para tokens e custo das chamadas ao modelo, filtre `type=GENERATION` e peça `fields=core,usage,model`.
+
+## Problemas comuns
+
+| Sintoma | Causa | Solução |
+|---|---|---|
+| `exec format error` ou container reiniciando com código 139 | camada de imagem corrompida (ex.: download interrompido por disco cheio) | `docker compose down`, `docker image rm <imagem>`, `docker image prune -f`, `docker compose pull` |
+| `langfuse-web` fica `unhealthy` mas responde em `localhost:3000` | healthcheck testando `127.0.0.1` dentro do container | já corrigido no override: o teste usa o hostname do container |
+| app sobe sem traces | chaves ausentes no `.env` ou Langfuse ainda iniciando | rode `scripts/setup_langfuse_env.py`; a app tenta reconectar a cada 30 s |
+| porta 8501 ocupada | Streamlit local rodando | pare o `streamlit run` local antes do `docker compose up` |
+
 ## Parar e limpar
 
 ```bash

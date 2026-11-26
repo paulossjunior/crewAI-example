@@ -20,6 +20,7 @@ services:
   app:
     build: .
     image: dinner-crew:latest
+    pull_policy: build  # built locally; never pulled from a registry
     restart: unless-stopped
     ports:
       - 127.0.0.1:8501:8501
