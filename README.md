@@ -21,6 +21,9 @@ only orchestrates the agents and writes the plan.
 > on [`rectools-lightfm`](https://github.com/feldlime/rectools-lightfm), a maintained fork with the
 > same `import lightfm` API.
 
+📚 **Full documentation (Portuguese):** [docs/](docs/README.md) — tutorial, how-to guides,
+reference and explanations of the architecture and the recommender systems.
+
 ## Setup
 
 ```bash
