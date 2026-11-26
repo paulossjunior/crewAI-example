@@ -86,6 +86,24 @@ every wine a grape and bottle price, every restaurant an average ticket.
 
 [data/large/](data/large/): generated — regenerate with `uv run python scripts/generate_large_data.py`.
 
+## Site da documentação
+
+The Portuguese docs in [docs/](docs/) (organized by Diátaxis) are also published as a website
+built with [MkDocs Material](https://squidfunk.github.io/mkdocs-material/) ([mkdocs.yml](mkdocs.yml)).
+
+Preview locally (live reload at http://127.0.0.1:8000):
+
+```bash
+uv run --group docs mkdocs serve
+```
+
+Links from the docs to source files outside `docs/` are rewritten to GitHub URLs at build time by
+[docs_hooks/github_links.py](docs_hooks/github_links.py).
+
+On every push to `main` that touches the docs, the [docs workflow](.github/workflows/docs.yml)
+builds the site with `--strict` and deploys it to GitHub Pages. Pages must be enabled once in the
+repository settings (**Settings → Pages → Source: GitHub Actions**).
+
 ## Spec Kit artifacts
 
 - Constitution: [.specify/memory/constitution.md](.specify/memory/constitution.md)

@@ -149,4 +149,9 @@ não depende da ordem em que os containers sobem.
   real, normalmente se filtrariam os itens já consumidos.
 - O filtro de cidade é por igualdade exata de texto.
 
-Detalhes de cada modelo: [Sobre os sistemas de recomendação](sistemas-de-recomendacao.md).
+Para continuar:
+
+- um pedido real, passo a passo: [Anatomia de um pedido](anatomia-de-um-pedido.md);
+- cada modelo em detalhe: [Sobre os sistemas de recomendação](sistemas-de-recomendacao.md);
+- a interface: [Sobre a interface de chat](interface-de-chat.md);
+- o tracing: [Sobre a observabilidade](observabilidade.md).

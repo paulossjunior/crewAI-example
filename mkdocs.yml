@@ -1,0 +1,79 @@
+site_name: Dinner Pairing Crew
+site_description: Documentação do Dinner Pairing Crew — exemplo de CrewAI com sistemas de recomendação.
+repo_url: https://github.com/paulossjunior/crewAI-example
+repo_name: paulossjunior/crewAI-example
+edit_uri: edit/main/docs/
+docs_dir: docs
+
+hooks:
+  - docs_hooks/github_links.py
+
+theme:
+  name: material
+  language: pt-BR
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.action.edit
+    - toc.follow
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Mudar para o modo escuro
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Mudar para o modo claro
+
+markdown_extensions:
+  - tables
+  - admonition
+  - attr_list
+  - toc:
+      permalink: true
+      # Slugs no estilo do GitHub (mantém acentos), para que âncoras como
+      # #ingredientes-e-preços funcionem tanto no GitHub quanto no site.
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+nav:
+  - Início: README.md
+  - Tutoriais:
+      - Primeiros passos com o Dinner Pairing Crew: tutorial/primeiros-passos.md
+      - Seu primeiro jantar com IA, monitorado no Langfuse: tutorial/jantar-com-ia-monitorado.md
+  - Guias práticos:
+      - Como adicionar pratos, vinhos, restaurantes e usuários: guias/como-adicionar-dados.md
+      - Como configurar o LLM: guias/como-configurar-o-llm.md
+      - Como criar uma nova tool recomendadora para um agente: guias/como-criar-uma-tool-recomendadora.md
+      - Como evoluir o projeto com o Spec Kit: guias/como-evoluir-com-spec-kit.md
+      - Como rodar com Docker (aplicação + Langfuse): guias/como-rodar-com-docker-e-langfuse.md
+      - Como usar (e regenerar) a base de dados grande: guias/como-usar-a-base-grande.md
+      - Como usar a interface gráfica (Streamlit): guias/como-usar-a-interface.md
+  - Referência:
+      - Referência da CLI dinner-crew: referencia/cli.md
+      - Referência do código: referencia/codigo.md
+      - Referência dos arquivos de dados: referencia/dados.md
+      - Referência da instalação Docker: referencia/instalacao-docker.md
+  - Explicação:
+      - Arquitetura do projeto: explicacao/arquitetura.md
+      - "Anatomia de um pedido: do texto ao plano de jantar": explicacao/anatomia-de-um-pedido.md
+      - Sobre os sistemas de recomendação usados: explicacao/sistemas-de-recomendacao.md
+      - Sobre a interface de chat: explicacao/interface-de-chat.md
+      - Sobre a observabilidade com Langfuse: explicacao/observabilidade.md
+      - Sobre o Spec Kit neste projeto: explicacao/spec-kit-no-projeto.md

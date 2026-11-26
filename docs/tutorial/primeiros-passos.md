@@ -142,3 +142,4 @@ personalização para um usuário conhecido e mudou uma recomendação alterando
   [Como adicionar dados](../guias/como-adicionar-dados.md).
 - Converse com a crew no navegador: [Como usar a interface](../guias/como-usar-a-interface.md).
 - Teste com volume: [Como usar a base grande](../guias/como-usar-a-base-grande.md).
+- Próximo tutorial: [Seu primeiro jantar com IA, monitorado no Langfuse](jantar-com-ia-monitorado.md).

@@ -22,6 +22,9 @@ dinner-crew = "dinner_crew.main:main"
 
 [dependency-groups]
 dev = ["pytest>=8"]
+docs = [
+    "mkdocs-material>=9.8.2",
+]
 
 [build-system]
 requires = ["hatchling"]
