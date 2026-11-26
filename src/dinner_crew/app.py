@@ -16,6 +16,7 @@ A sidebar switch picks the dataset: ``toy`` (hand-written) or ``large`` (generat
 from __future__ import annotations
 
 import os
+import uuid
 
 import streamlit as st
 from dotenv import load_dotenv
@@ -77,13 +78,15 @@ CREW_STEPS = [
 ]
 
 
-def run_crew_with_progress(crew, inputs: dict) -> str:
+def run_crew_with_progress(crew, inputs: dict, req: DinnerRequest, dataset: str) -> str:
     """Run the crew while showing which agent is working.
 
     ``kickoff`` blocks for ~30-60 s (four LLM calls). Without feedback the page looks frozen, and
     users tend to type or click, which makes Streamlit rerun the script and abort the crew. The
     crew's ``task_callback`` runs in this same script thread, so it can update the status box.
     """
+    from dinner_crew.observability import kickoff_traced
+
     with st.status("Os agentes estão trabalhando (~40 s)...", expanded=True) as status:
         st.caption("Aguarde: enviar outra mensagem ou mudar filtros agora interrompe a crew.")
         status.write(CREW_STEPS[0] + "…")
@@ -97,7 +100,8 @@ def run_crew_with_progress(crew, inputs: dict) -> str:
 
         crew.task_callback = on_task_done
         try:
-            output = crew.kickoff(inputs=inputs)
+            output = kickoff_traced(crew, inputs, user_id=req.user_id, session_id=s["session_id"],
+                                    tags=["streamlit", dataset])
         except Exception as exc:  # network errors, timeouts, rate limits
             status.update(label="A crew falhou", state="error")
             return f"⚠️ A crew falhou: `{type(exc).__name__}: {exc}`"
@@ -116,11 +120,12 @@ def answer(req: DinnerRequest, mode: str, dataset: str) -> tuple[str, dict]:
         os.environ["DINNER_DATASET"] = dataset  # the crew's tools read the dataset from here
 
         req_for_crew = req if req.dish else DinnerRequest(**{**req.__dict__, "dish": result["chosen_dish"]})
-        return run_crew_with_progress(DinnerCrew().crew(), build_crew_inputs(req_for_crew)), result
+        return run_crew_with_progress(DinnerCrew().crew(), build_crew_inputs(req_for_crew), req, dataset), result
     return render_plan(result, req), result
 
 
 s = st.session_state
+s.setdefault("session_id", uuid.uuid4().hex)  # groups this chat's traces in Langfuse
 s.setdefault("messages", [{"role": "assistant", "content": GREETING}])
 
 # A submitted chat message is available here, before the sidebar is drawn, so parsing it can

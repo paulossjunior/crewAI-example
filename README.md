@@ -30,7 +30,18 @@ only orchestrates the agents and writes the plan.
 📚 **Full documentation (Portuguese):** [docs/](docs/README.md) — tutorial, how-to guides,
 reference and explanations of the architecture and the recommender systems.
 
-## Setup
+## Install with Docker (app + Langfuse monitoring)
+
+```bash
+uv run python scripts/setup_langfuse_env.py   # once: secrets, Langfuse project and API keys
+docker compose up -d --build
+```
+
+App on http://localhost:8501, Langfuse on http://localhost:3000 (login printed by the script).
+Every crew run in "Com IA" mode becomes a trace: agents, tasks, tool calls and OpenAI calls with
+tokens and cost. Details: [docs/guias/como-rodar-com-docker-e-langfuse.md](docs/guias/como-rodar-com-docker-e-langfuse.md).
+
+## Setup (local, without Docker)
 
 ```bash
 uv sync                      # Python 3.12 is picked from .python-version
@@ -82,5 +93,6 @@ every wine a grape and bottle price, every restaurant an average ticket.
 - Feature 002 (library-backed recommender tools): [specs/002-library-recommenders/](specs/002-library-recommenders/)
 - Feature 003 (Streamlit chat UI): [specs/003-streamlit-chat-ui/](specs/003-streamlit-chat-ui/)
 - Feature 004 (large dataset, host agent, ingredients & prices): [specs/004-large-data-host-prices/](specs/004-large-data-host-prices/)
+- Feature 005 (Docker Compose + Langfuse): [specs/005-docker-langfuse/](specs/005-docker-langfuse/)
 
 The `/speckit-*` skills live in [.claude/skills/](.claude/skills/) (Claude Code integration).

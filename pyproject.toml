@@ -7,7 +7,10 @@ requires-python = ">=3.12,<3.14"
 dependencies = [
     "crewai>=1.15",
     "implicit>=0.7.3",
+    "langfuse>=5.2.0",
     "numpy>=1.26",
+    "openinference-instrumentation-crewai>=1.1.30",
+    "openinference-instrumentation-openai>=0.1.77",
     "python-dotenv>=1.0",
     "rectools-lightfm>=1.17.3",
     "scikit-surprise>=1.1.5",

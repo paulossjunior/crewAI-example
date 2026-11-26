@@ -122,6 +122,23 @@ carregados de um artefato versionado.
 decidir que a crew vai rodar. O import do CrewAI leva alguns segundos; sem isso, um `--dry-run` ou
 um erro de digitação em `--price` pagariam esse custo à toa.
 
+## Observabilidade
+
+Agentes de LLM são difíceis de depurar olhando só a saída final: o plano pode estar errado porque
+uma tool devolveu outra coisa, porque um agente leu mal o `context` ou porque o LLM ignorou uma
+instrução. Por isso cada execução da crew pode ser registrada no Langfuse, um servidor de tracing
+que roda localmente via Docker Compose.
+
+A instrumentação é feita por bibliotecas OpenInference, sem espalhar código de tracing pela
+aplicação: uma instrumenta o CrewAI (agentes, tarefas, tools) e outra a SDK da OpenAI (cada chamada
+ao modelo, com tokens e custo). `observability.kickoff_traced` só acrescenta um span raiz com o
+pedido, o usuário, a sessão do chat e tags. Os recomendadores não aparecem como chamadas de LLM
+porque não usam LLM; aparecem como chamadas de tool, com a entrada e o JSON devolvido.
+
+O tracing é opcional por desenho: sem chaves, não liga; com o Langfuse fora do ar, a aplicação
+avisa e segue, tentando reconectar a cada 30 s. Assim, os testes continuam offline e a interface
+não depende da ordem em que os containers sobem.
+
 ## Limitações conhecidas
 
 - Os dados são sintéticos: a base toy foi escrita à mão e a large foi gerada a partir de perfis de

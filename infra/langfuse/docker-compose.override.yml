@@ -1,0 +1,28 @@
+# Local overrides for the official Langfuse compose file (kept unmodified next to this one).
+# - Bind every published port to localhost: the official file exposes some on all interfaces.
+# - Disable anonymous usage telemetry sent to Langfuse.
+# - Add a healthcheck to langfuse-web so the app can wait for it.
+# - Keep the optional AI gateway out of a plain `docker compose up` (profile "gateway").
+services:
+  langfuse-worker:
+    environment:
+      TELEMETRY_ENABLED: "false"
+  langfuse-web:
+    ports: !override
+      - 127.0.0.1:3000:3000
+    environment:
+      TELEMETRY_ENABLED: "false"
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3000/api/public/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+      start_period: 60s
+  langfuse-ai-gateway:
+    profiles: ["gateway"]
+    ports: !override
+      - 127.0.0.1:3031:3031
+  minio:
+    ports: !override
+      - 127.0.0.1:9090:9000
+      - 127.0.0.1:9091:9001

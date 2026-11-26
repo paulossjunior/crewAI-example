@@ -1,0 +1,15 @@
+# Keep the build context small and free of secrets.
+.git
+.venv
+.env
+**/.env
+__pycache__
+*.pyc
+.pytest_cache
+.claude
+.specify
+infra
+specs
+docs
+tests
+scripts

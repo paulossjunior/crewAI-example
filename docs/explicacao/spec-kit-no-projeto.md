@@ -71,6 +71,11 @@ a exigir que a base grande seja exatamente a saída de um script versionado. O `
 registra ajustes feitos depois de olhar os resultados — o viés de popularidade nos vinhos e a
 esparsidade nas notas —, que mudaram o gerador, não os modelos.
 
+**Feature 005 (`specs/005-docker-langfuse/`) e constitution 3.1.0** — instalação com Docker
+Compose e monitoramento com Langfuse self-hosted. A emenda (MINOR) abriu uma exceção controlada no
+Princípio III: observabilidade local é permitida, desde que opcional e nunca necessária para os
+testes.
+
 Durante a implementação de 002, os testes e o `--dry-run` revelaram problemas que não estavam no
 plano — um restaurante sem notas recebendo nota 1, um resultado vazio quando o usuário já tinha
 avaliado todos os restaurantes da cidade, ruído na cauda do ALS. Foram corrigidos e cobertos por
@@ -94,6 +99,7 @@ medida que o projeto cresce ou passa a ter mais de uma pessoa (ou agente) trabal
 | Feature 002 | `specs/002-library-recommenders/` (spec, plan, contracts, tasks) |
 | Feature 003 | `specs/003-streamlit-chat-ui/` (spec, plan, tasks) |
 | Feature 004 | `specs/004-large-data-host-prices/` (spec, plan, tasks) |
+| Feature 005 | `specs/005-docker-langfuse/` (spec, plan, tasks) |
 | Feature ativa | `.specify/feature.json` |
 
 Para usar o fluxo numa nova mudança: [Como evoluir o projeto com o Spec Kit](../guias/como-evoluir-com-spec-kit.md).

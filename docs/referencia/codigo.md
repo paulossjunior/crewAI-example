@@ -17,6 +17,7 @@ src/dinner_crew/
 ├── config/agents.yaml              4 agentes (3 especialistas + Anfitrião)
 ├── config/tasks.yaml               4 tarefas
 ├── crew.py                         DinnerCrew, build_llm
+├── observability.py                tracing opcional no Langfuse
 └── main.py                         CLI
 ```
 
@@ -380,6 +381,21 @@ processada antes de o painel ser desenhado, para que o pedido interpretado atual
 
 ---
 
+## `dinner_crew.observability`
+
+[observability.py](../../src/dinner_crew/observability.py)
+
+| Nome | Descrição |
+|---|---|
+| `setup_tracing() -> client \| None` | se `LANGFUSE_PUBLIC_KEY` e `LANGFUSE_SECRET_KEY` existem, conecta (`get_client()` + `auth_check()`) e instrumenta CrewAI e OpenAI (OpenInference). Sucesso vale para o processo todo; falha devolve `None`, avisa em stderr e é tentada de novo após `RETRY_AFTER_S` (30 s) |
+| `kickoff_traced(crew, inputs, *, user_id=None, session_id=None, tags=None)` | roda `crew.kickoff(inputs=...)`; com tracing ativo, dentro de um span raiz `dinner-plan` (input = inputs, output = plano) com `user_id`, `session_id` e `tags` propagados, e chama `flush()` no fim |
+
+Variáveis: `LANGFUSE_PUBLIC_KEY`, `LANGFUSE_SECRET_KEY`, `LANGFUSE_HOST` (padrão do SDK:
+`https://cloud.langfuse.com`; no projeto, `http://localhost:3000` ou `http://langfuse-web:3000`
+dentro do compose).
+
+---
+
 ## `dinner_crew.main`
 
 [main.py](../../src/dinner_crew/main.py)
@@ -407,4 +423,5 @@ processada antes de o painel ser desenhado, para que o pedido interpretado atual
 | `test_cli.py` | códigos de saída, `--dry-run`, montagem da crew (4 agentes, Anfitrião sem tool) sem `kickoff` |
 | `test_intake.py` | extração de preferências, restrições, preço, cidade, usuário; contexto entre mensagens |
 | `test_pipeline_app.py` | plano e resumo por template, inputs da crew, fluxo do chat e troca de base via `streamlit.testing.v1.AppTest` |
+| `test_observability.py` | tracing desligado sem chaves, fallback com Langfuse inacessível, nova tentativa após o intervalo |
 | `test_large_dataset.py` | base large igual à saída do gerador, tamanhos, integridade referencial, ingredientes/preços, recomendações coerentes |

@@ -117,10 +117,11 @@ def main(argv: list[str] | None = None) -> int:
         return fail("defina OPENAI_API_KEY no ambiente ou no arquivo .env.", 2)
 
     from dinner_crew.crew import DinnerCrew  # lazy: crewai import is slow
+    from dinner_crew.observability import kickoff_traced
 
     # build_crew_inputs fills the {placeholders} in the YAML configs (see pipeline.py).
     inputs = build_crew_inputs(req)
-    output = DinnerCrew().crew().kickoff(inputs=inputs)
+    output = kickoff_traced(DinnerCrew().crew(), inputs, user_id=req.user_id, tags=["cli", args.dataset])
     print(output.raw)
     return 0
 

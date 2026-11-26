@@ -1,9 +1,8 @@
 <!--
 Sync Impact Report
-- Version change: 2.1.0 → 3.0.0 (MAJOR: Principles I and III redefined)
-- Modified principles:
-  - I. One Agent, One Recommender Library → adds a tool-less Host agent that only summarizes
-  - III. Local Versioned Toy Data → Local Versioned Data (toy + generated large dataset)
+- Version change: 3.0.0 → 3.1.0 (MINOR: observability and container deployment added)
+- Modified sections: Principle III (self-hosted Langfuse allowed as optional local service);
+  Technology & Constraints (Docker Compose deployment, Langfuse tracing)
 - Templates: no template files modified
 - Deferred TODOs: none
 -->
@@ -50,7 +49,9 @@ datasets with identical schemas:
   committed files MUST equal the script's output (enforced by a test).
 
 The only external service permitted at runtime is the OpenAI LLM used by CrewAI. No databases,
-web scraping or third-party APIs.
+web scraping or third-party APIs for the app's data. Observability is the one exception, and only
+self-hosted: a local Langfuse (Docker Compose) MAY receive traces. Tracing MUST be optional — off
+without keys, never failing the app when Langfuse is down — and tests MUST NOT need it.
 
 **Rationale**: anyone can clone and run the example offline (except the LLM) with reproducible
 results, and still see the recommenders behave on realistic data volumes.
@@ -78,6 +79,9 @@ the plan's Complexity Tracking table.
 - Orchestration: CrewAI (agents, tasks, tools); LLM provider: OpenAI.
 - Recommenders: `lightfm` (via the `rectools-lightfm` fork, since upstream 1.17 does not build on
   Python 3.12), `implicit`, `scikit-surprise`, plus `numpy`/`scipy`.
+- Deployment: `docker compose up` runs the Streamlit UI and a self-hosted Langfuse, all bound to
+  localhost; Langfuse telemetry disabled.
+- Observability: Langfuse via OpenInference instrumentation of CrewAI and OpenAI.
 - Entry points: the `dinner-crew` CLI and a Streamlit chat UI (`src/dinner_crew/app.py`). Both
   share one pipeline module and MUST offer a mode that works without the LLM.
 
@@ -96,4 +100,4 @@ versioning: MAJOR for principle removals/redefinitions, MINOR for new principles
 expanded guidance, PATCH for clarifications. Every plan MUST include a Constitution Check against
 these principles; violations MUST be justified in Complexity Tracking or removed.
 
-**Version**: 3.0.0 | **Ratified**: 2026-11-26 | **Last Amended**: 2026-11-26
+**Version**: 3.1.0 | **Ratified**: 2026-11-26 | **Last Amended**: 2026-11-26

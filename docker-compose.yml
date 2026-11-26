@@ -1,0 +1,35 @@
+# Dinner Pairing Crew + self-hosted Langfuse.
+#
+#   uv run python scripts/setup_langfuse_env.py   # once: generates secrets and API keys
+#   docker compose up -d --build
+#
+#   App:      http://localhost:8501
+#   Langfuse: http://localhost:3000  (login printed by the setup script; see infra/langfuse/.env)
+#
+# Everything is bound to 127.0.0.1. The Langfuse services come from the official compose file
+# (infra/langfuse/docker-compose.yml) plus our local overrides.
+name: dinner-crew
+
+include:
+  - path:
+      - infra/langfuse/docker-compose.yml
+      - infra/langfuse/docker-compose.override.yml
+    env_file: infra/langfuse/.env
+
+services:
+  app:
+    build: .
+    image: dinner-crew:latest
+    restart: unless-stopped
+    ports:
+      - 127.0.0.1:8501:8501
+    env_file:
+      # OPENAI_API_KEY (for "Com IA" mode) and LANGFUSE_PUBLIC_KEY/SECRET_KEY live here.
+      - path: .env
+        required: false
+    environment:
+      # Inside the compose network Langfuse is reached by service name, not localhost.
+      LANGFUSE_HOST: http://langfuse-web:3000
+    depends_on:
+      langfuse-web:
+        condition: service_healthy

@@ -4,7 +4,8 @@ Um exemplo didático de [CrewAI](https://github.com/crewAIInc/crewAI) em que tr�
 especialistas montam um plano de jantar (prato → vinho → restaurante), cada um com uma biblioteca
 de recomendação diferente — **LightFM**, **implicit** e **Surprise** — e um quarto agente, o
 **Anfitrião**, resume tudo num texto humano com ingredientes e preços. Há uma base de dados pequena
-(`toy`) e uma grande (`large`), uma CLI e uma interface de chat em Streamlit. O projeto foi construído com
+(`toy`) e uma grande (`large`), uma CLI, uma interface de chat em Streamlit e uma instalação com
+Docker Compose que inclui o Langfuse para monitorar cada execução da crew. O projeto foi construído com
 [GitHub Spec Kit](https://github.com/github/spec-kit) (desenvolvimento guiado por especificação).
 
 A documentação segue o framework [Diátaxis](https://diataxis.fr): escolha a seção pelo que você
@@ -19,6 +20,7 @@ precisa agora.
 
 - [Como usar a interface gráfica (Streamlit)](guias/como-usar-a-interface.md)
 - [Como usar (e regenerar) a base de dados grande](guias/como-usar-a-base-grande.md)
+- [Como rodar com Docker (aplicação + Langfuse)](guias/como-rodar-com-docker-e-langfuse.md)
 - [Como adicionar pratos, vinhos, restaurantes e usuários](guias/como-adicionar-dados.md)
 - [Como criar uma nova tool recomendadora para um agente](guias/como-criar-uma-tool-recomendadora.md)
 - [Como configurar o LLM](guias/como-configurar-o-llm.md)

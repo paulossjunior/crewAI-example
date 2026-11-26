@@ -63,6 +63,7 @@ item incluem `ingredients` e `price_brl` (pratos), `grape` e `price_brl` (vinhos
 |---|---|---|
 | `OPENAI_API_KEY` | chave da OpenAI; obrigatória sem `--dry-run` | — |
 | `OPENAI_MODEL` | modelo usado pelos quatro agentes | `gpt-4o-mini` |
+| `LANGFUSE_PUBLIC_KEY`, `LANGFUSE_SECRET_KEY`, `LANGFUSE_HOST` | ativam o tracing da crew no Langfuse ([guia](../guias/como-rodar-com-docker-e-langfuse.md)); sem elas, nada é enviado | — |
 | `DINNER_DATASET` | base padrão (`toy` ou `large`) quando `--dataset` não é usado por quem lê os dados | `toy` |
 
 São lidas do ambiente e do arquivo `.env` (via `python-dotenv`); o ambiente tem prioridade.
