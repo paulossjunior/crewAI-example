@@ -19,7 +19,8 @@ def build_llm() -> LLM:
         A configured CrewAI ``LLM``.
     """
     # temperature=0 reduces narrative variance; the recommendations themselves come from the tools.
-    return LLM(model=os.getenv("OPENAI_MODEL", "gpt-4o-mini"), temperature=0)
+    # timeout: a stuck HTTP call fails after 90 s instead of hanging the CLI or the UI forever.
+    return LLM(model=os.getenv("OPENAI_MODEL", "gpt-4o-mini"), temperature=0, timeout=90)
 
 
 @CrewBase

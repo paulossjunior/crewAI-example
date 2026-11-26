@@ -29,7 +29,8 @@ OPENAI_MODEL=gpt-4o uv run dinner-crew --prefs "massa" --user u1
 ## Mudar temperatura ou outros parâmetros
 
 Edite `build_llm()` em `src/dinner_crew/crew.py`. O padrão é `temperature=0`, para reduzir a
-variação do texto entre execuções (os itens recomendados já são determinísticos).
+variação do texto entre execuções (os itens recomendados já são determinísticos), e `timeout=90`,
+para que uma chamada presa vire erro em vez de travar a CLI ou a interface.
 
 ## Usar outro provedor
 

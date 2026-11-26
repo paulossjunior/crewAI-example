@@ -67,3 +67,8 @@ usuários vão de `u0001` a `u1500` e há 8 cidades. Detalhes em
 | **Com IA (CrewAI + OpenAI)** | os três especialistas chamam as tools e o Anfitrião redige o plano (~45 s) | `OPENAI_API_KEY` no `.env` ([Como configurar o LLM](como-configurar-o-llm.md)) |
 
 Sem chave, o modo com IA avisa e mostra o plano sem IA.
+
+No modo com IA, um painel mostra cada agente concluindo (prato → vinho → restaurante →
+resumo). **Não envie mensagens nem mude filtros enquanto ele roda:** qualquer interação faz o
+Streamlit reexecutar a página e interrompe a crew, que recomeça do zero. Se uma chamada à OpenAI
+ficar presa, ela falha após 90 s e o erro aparece no chat.

@@ -69,6 +69,42 @@ def store_request(req: DinnerRequest) -> None:
     s["city"], s["user"], s["dish"] = req.city, req.user_id or NEW_USER, req.dish
 
 
+CREW_STEPS = [
+    "🍽️ Food Sommelier escolhendo o prato (LightFM)",
+    "🍷 Wine Sommelier harmonizando o vinho (implicit)",
+    "📍 Concierge procurando o restaurante (Surprise)",
+    "🗣️ Anfitrião escrevendo o resumo",
+]
+
+
+def run_crew_with_progress(crew, inputs: dict) -> str:
+    """Run the crew while showing which agent is working.
+
+    ``kickoff`` blocks for ~30-60 s (four LLM calls). Without feedback the page looks frozen, and
+    users tend to type or click, which makes Streamlit rerun the script and abort the crew. The
+    crew's ``task_callback`` runs in this same script thread, so it can update the status box.
+    """
+    with st.status("Os agentes estão trabalhando (~40 s)...", expanded=True) as status:
+        st.caption("Aguarde: enviar outra mensagem ou mudar filtros agora interrompe a crew.")
+        status.write(CREW_STEPS[0] + "…")
+        done = []
+
+        def on_task_done(output) -> None:
+            done.append(output)
+            status.write(f"✅ {output.agent} concluiu")
+            if len(done) < len(CREW_STEPS):
+                status.write(CREW_STEPS[len(done)] + "…")
+
+        crew.task_callback = on_task_done
+        try:
+            output = crew.kickoff(inputs=inputs)
+        except Exception as exc:  # network errors, timeouts, rate limits
+            status.update(label="A crew falhou", state="error")
+            return f"⚠️ A crew falhou: `{type(exc).__name__}: {exc}`"
+        status.update(label="Plano pronto!", state="complete", expanded=False)
+    return output.raw
+
+
 def answer(req: DinnerRequest, mode: str, dataset: str) -> tuple[str, dict]:
     """Produce the assistant reply (markdown) and the raw recommender output."""
     result = run_recommenders(req, get_recommenders(dataset))
@@ -80,8 +116,7 @@ def answer(req: DinnerRequest, mode: str, dataset: str) -> tuple[str, dict]:
         os.environ["DINNER_DATASET"] = dataset  # the crew's tools read the dataset from here
 
         req_for_crew = req if req.dish else DinnerRequest(**{**req.__dict__, "dish": result["chosen_dish"]})
-        output = DinnerCrew().crew().kickoff(inputs=build_crew_inputs(req_for_crew))
-        return output.raw, result
+        return run_crew_with_progress(DinnerCrew().crew(), build_crew_inputs(req_for_crew)), result
     return render_plan(result, req), result
 
 
@@ -137,8 +172,11 @@ if pending:
     req = sidebar_request()
     s.messages.append({"role": "user", "content": pending})
     understood = parsed.understood if pending != "(filtros do painel)" else ["filtros do painel"]
-    with st.spinner("Os agentes estão montando seu jantar..." if mode == MODE_AI else "Recomendando..."):
-        reply, raw = answer(req, mode, dataset)
+    if mode == MODE_AI:
+        reply, raw = answer(req, mode, dataset)  # shows its own progress box
+    else:
+        with st.spinner("Recomendando..."):
+            reply, raw = answer(req, mode, dataset)
     prefix = f"_Entendi: {'; '.join(understood) or 'nada novo, usei o pedido anterior'}._\n\n"
     s.messages.append({"role": "assistant", "content": prefix + reply, "raw": raw})
 
