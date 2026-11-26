@@ -75,6 +75,8 @@ Em um segundo aparece a resposta. Repare em três coisas:
 
 Tudo isso veio só dos três recomendadores, sem nenhuma IA.
 
+![Resposta sem IA](../assets/telas/02-pedido-sem-ia.png)
+
 ## 5. Agora peça com IA
 
 No painel, mude **Modo** para **Com IA (CrewAI + OpenAI)** e envie de novo:
@@ -96,6 +98,8 @@ surgindo:
 🗣️ Anfitrião escrevendo o resumo…
 ✅ Anfitrião do Jantar concluiu
 ```
+
+![Painel de progresso](../assets/telas/05-com-ia-progresso.png)
 
 O painel fecha em **Plano pronto!** e a resposta chega. Compare com a do passo 4: os itens são os
 mesmos (vêm dos mesmos recomendadores), mas o texto agora foi escrito pelo agente Anfitrião, com
@@ -124,6 +128,8 @@ combinação — em vez de fingir confiança.
 
 Abra http://localhost:3000 e entre com o login do passo 2. Clique no projeto **dinner-crew** e
 depois em **Tracing**.
+
+![Lista de traces no Langfuse](../assets/telas/08-langfuse-traces.png)
 
 Você verá dois traces chamados `dinner-plan` — um para cada pedido feito com IA. Os pedidos sem IA
 não aparecem: eles não chamam o modelo.
@@ -155,6 +161,8 @@ dinner-plan                                         [CHAIN]
 
 Repare no padrão de cada especialista: uma chamada ao modelo para decidir usar a ferramenta, a
 ferramenta, e outra chamada para escrever o relatório. O Anfitrião só tem a última.
+
+![Um trace aberto no Langfuse](../assets/telas/09-langfuse-trace.png)
 
 Explore três nós:
 

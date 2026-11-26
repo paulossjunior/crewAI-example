@@ -8,6 +8,10 @@ uv run streamlit run src/dinner_crew/app.py
 
 O navegador abre em `http://localhost:8501`. Para outra porta: `--server.port 8600`.
 
+![Tela inicial da interface](../assets/telas/01-tela-inicial.png)
+
+Todas as telas, com cada elemento descrito: [Referência das telas](../referencia/telas-da-interface.md).
+
 ## Pedir um jantar
 
 Escreva na caixa de chat, em português, do jeito que falaria:
@@ -21,6 +25,8 @@ vegetariano; usuário: u1.`), segue com o **Resumo do anfitrião** — um parág
 restaurante, preços e custo de prato + vinho — e traz as seções 🍽️ Prato, 🍷 Vinho e
 📍 Restaurante, com ingredientes, uva, preço da garrafa e ticket médio de cada item. Abra
 **Ver saída dos recomendadores (JSON)** para ver os dados crus de LightFM, implicit e Surprise.
+
+![Resposta sem IA com o resumo do anfitrião](../assets/telas/02-pedido-sem-ia.png)
 
 O que o chat reconhece:
 
@@ -67,6 +73,8 @@ usuários vão de `u0001` a `u1500` e há 8 cidades. Detalhes em
 | **Com IA (CrewAI + OpenAI)** | os três especialistas chamam as tools e o Anfitrião redige o plano (~45 s) | `OPENAI_API_KEY` no `.env` ([Como configurar o LLM](como-configurar-o-llm.md)) |
 
 Sem chave, o modo com IA avisa e mostra o plano sem IA.
+
+![Painel de progresso do modo com IA](../assets/telas/05-com-ia-progresso.png)
 
 No modo com IA, um painel mostra cada agente concluindo (prato → vinho → restaurante →
 resumo). **Não envie mensagens nem mude filtros enquanto ele roda:** qualquer interação faz o

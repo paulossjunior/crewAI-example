@@ -44,7 +44,11 @@ markdown_extensions:
       slugify: !!python/object/apply:pymdownx.slugs.slugify
         kwds:
           case: lower
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.highlight
   - pymdownx.inlinehilite
   - pymdownx.details
@@ -70,6 +74,8 @@ nav:
       - Referência do código: referencia/codigo.md
       - Referência dos arquivos de dados: referencia/dados.md
       - Referência da instalação Docker: referencia/instalacao-docker.md
+      - Referência da arquitetura do software: referencia/arquitetura.md
+      - Referência das telas da interface: referencia/telas-da-interface.md
   - Explicação:
       - Arquitetura do projeto: explicacao/arquitetura.md
       - "Anatomia de um pedido: do texto ao plano de jantar": explicacao/anatomia-de-um-pedido.md

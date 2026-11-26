@@ -20,7 +20,8 @@ precisa agora.
 | Ingredientes e preços | [tutorial 2](tutorial/jantar-com-ia-monitorado.md) | [adicionar dados](guias/como-adicionar-dados.md) | [dados](referencia/dados.md) | [sistemas de recomendação](explicacao/sistemas-de-recomendacao.md#ingredientes-e-preços) |
 | Base `toy` e base `large` | — | [base grande](guias/como-usar-a-base-grande.md) | [dados](referencia/dados.md) | [arquitetura](explicacao/arquitetura.md#duas-bases-de-dados) |
 | CLI `dinner-crew` | [tutorial 1](tutorial/primeiros-passos.md) | [configurar o LLM](guias/como-configurar-o-llm.md) | [CLI](referencia/cli.md) | [arquitetura](explicacao/arquitetura.md) |
-| Interface de chat (Streamlit) | [tutorial 2](tutorial/jantar-com-ia-monitorado.md) | [usar a interface](guias/como-usar-a-interface.md) | [código](referencia/codigo.md#dinner_crewapp) | [interface de chat](explicacao/interface-de-chat.md) |
+| Arquitetura do software | — | — | [5 diagramas](referencia/arquitetura.md) | [arquitetura](explicacao/arquitetura.md) |
+| Interface de chat (Streamlit) | [tutorial 2](tutorial/jantar-com-ia-monitorado.md) | [usar a interface](guias/como-usar-a-interface.md) | [telas](referencia/telas-da-interface.md) | [interface de chat](explicacao/interface-de-chat.md) |
 | Docker Compose + Langfuse | [tutorial 2](tutorial/jantar-com-ia-monitorado.md) | [rodar com Docker](guias/como-rodar-com-docker-e-langfuse.md) | [instalação Docker](referencia/instalacao-docker.md) | [observabilidade](explicacao/observabilidade.md) |
 | Spec Kit | — | [evoluir com Spec Kit](guias/como-evoluir-com-spec-kit.md) | — | [Spec Kit no projeto](explicacao/spec-kit-no-projeto.md) |
 
@@ -47,6 +48,8 @@ precisa agora.
 - [Referência do código (módulos, classes, tools)](referencia/codigo.md)
 - [Referência dos arquivos de dados](referencia/dados.md)
 - [Referência da instalação Docker (serviços, portas, volumes, variáveis)](referencia/instalacao-docker.md)
+- [Referência da arquitetura do software (5 diagramas)](referencia/arquitetura.md)
+- [Referência das telas da interface](referencia/telas-da-interface.md)
 
 ## 💡 Explicação — entender o porquê
 

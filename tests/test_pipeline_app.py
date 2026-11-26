@@ -67,3 +67,12 @@ def test_app_switches_to_large_dataset():
     assert at.selectbox(key="city").value == "Recife"
     reply = at.chat_message[-1].markdown[0].value
     assert "Resumo do anfitrião" in reply and "Ceviche" in reply
+
+
+def test_app_first_request_uses_cli_defaults():
+    # Regression: the price radio used to start at its first option ("baixa") instead of "media".
+    at = AppTest.from_file(APP, default_timeout=120).run()
+    assert at.radio(key="price").value == "media"
+    at.chat_input[0].set_value("quero massa com tomate, sou u1").run()
+    reply = at.chat_message[-1].markdown[0].value
+    assert "Chianti Classico" in reply and "R$ 181" in reply

@@ -7,25 +7,24 @@ O projeto separa duas responsabilidades que costumam se misturar em exemplos de 
 de recomendação clássicos, determinísticos e testáveis. A segunda é feita por agentes CrewAI
 movidos a LLM, que orquestram as chamadas e redigem o plano.
 
-```text
-        ┌──────────── CLI (main.py) ────────────┐   ┌──────── Streamlit (app.py) ────────┐
-        │ opções → DinnerRequest · --dataset    │   │ texto livre → intake.py → Request  │
-        └───────────────────┬───────────────────┘   └─────────────────┬──────────────────┘
-                            └──────────────┬────────────────────────────┘
-                                           ▼
-                         pipeline.py (Recommenders por base · run · summarize · render)
-                          │ modo sem IA: resumo + plano por template
-                          │ modo com IA: kickoff(inputs) ▼
- ┌──────────────────────────── Crew (crew.py, processo sequencial) ─────────────────────────────┐
- │ Food Sommelier ─▶ Wine Sommelier ─▶ Concierge ─▶ Anfitrião (sem tool) ─▶ plano em markdown    │
- │      │ tool            │ tool            │ tool        ▲ context das três tarefas             │
- └──────┼─────────────────┼─────────────────┼─────────────────────────────────────────────────────┘
-        ▼                 ▼                 ▼
-   LightFM           implicit ALS     Surprise KNNWithMeans                      (recommenders/)
-        │                 │                 │
-   dishes · user_profiles · dish_likes · wines · wine_orders · restaurants · ratings
-        data/ (toy, à mão)   ou   data/large/ (gerada por scripts/generate_large_data.py)
+```mermaid
+flowchart TB
+    cli["CLI · main.py"] --> pipeline
+    ui["Streamlit · app.py + intake.py"] --> pipeline
+    pipeline["pipeline.py"] -- "modo sem IA" --> plano(["plano por template"])
+    pipeline -- "modo com IA" --> crew
+    subgraph crew["Crew · processo sequencial"]
+        f["Food Sommelier"] --> w["Wine Sommelier"] --> c["Concierge"] --> h["Anfitrião<br/>sem ferramenta"]
+    end
+    f -. tool .-> lf["LightFM"]
+    w -. tool .-> im["implicit"]
+    c -. tool .-> su["Surprise"]
+    h --> planoia(["plano escrito pelo LLM"])
+    lf & im & su --> csv[("data/ ou data/large/")]
 ```
+
+As cinco visões completas — contexto, componentes, sequência, implantação e dados — estão em
+[Referência da arquitetura](../referencia/arquitetura.md).
 
 ## Dois pontos de entrada, um pipeline
 

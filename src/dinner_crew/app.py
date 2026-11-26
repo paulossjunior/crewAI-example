@@ -127,6 +127,12 @@ def answer(req: DinnerRequest, mode: str, dataset: str) -> tuple[str, dict]:
 s = st.session_state
 s.setdefault("session_id", uuid.uuid4().hex)  # groups this chat's traces in Langfuse
 s.setdefault("messages", [{"role": "assistant", "content": GREETING}])
+# Same defaults as the CLI (DinnerRequest). Without them, a radio/selectbox drawn before its key
+# exists falls back to its first option — the price would silently start as "baixa".
+_DEFAULTS = DinnerRequest()
+s.setdefault("price", _DEFAULTS.price)
+s.setdefault("city", _DEFAULTS.city)
+s.setdefault("user", NEW_USER)
 
 # A submitted chat message is available here, before the sidebar is drawn, so parsing it can
 # update the sidebar widgets in this same run.
@@ -159,14 +165,14 @@ with st.sidebar:
     st.selectbox("Usuário", [NEW_USER, *users], key="user")
     st.selectbox("Cidade", cities, key="city")
     st.radio("Faixa de preço", PRICES, key="price", horizontal=True)
-    st.multiselect("Restrições", RESTRICTIONS, key="restrictions")
-    st.multiselect("Preferências", vocab, key="preferences")
+    st.multiselect("Restrições", RESTRICTIONS, key="restrictions", placeholder="Nenhuma")
+    st.multiselect("Preferências", vocab, key="preferences", placeholder="Escolha termos ou escreva no chat")
     if s.get("dish"):
         st.caption(f"Prato fixado: **{s['dish']}**")
     if st.button("Recomendar com estes filtros"):
         pending = pending or "(filtros do painel)"
     if st.button("Nova conversa"):
-        for key in ("messages", "preferences", "restrictions", "dish", "user"):
+        for key in ("messages", "preferences", "restrictions", "dish", "user", "price", "city"):
             s.pop(key, None)
         st.rerun()
 
