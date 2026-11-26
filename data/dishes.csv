@@ -1,0 +1,20 @@
+name,cuisine,protein,sauce,intensity,tags,suitable_for
+Risoto de cogumelos,italiana,vegetal,cremoso,media,cogumelos;arroz;parmesão;ervas;manteiga,vegetariano;sem_gluten
+Spaghetti al pomodoro,italiana,vegetal,tomate,leve,massa;tomate;manjericão;azeite;alho,vegetariano;vegano;sem_lactose
+Lasanha à bolonhesa,italiana,carne_vermelha,tomate,intensa,massa;carne;tomate;queijo;forno,
+Fettuccine ao funghi,italiana,vegetal,cremoso,media,massa;cogumelos;creme;parmesão;trufa,vegetariano
+Sushi de salmão,japonesa,peixe,leve,leve,salmão;arroz;peixe;cru;wasabi,sem_lactose
+Lámen de porco,japonesa,porco,intenso,intensa,porco;caldo;macarrão;ovo;umami,sem_lactose
+Tempurá de legumes,japonesa,vegetal,leve,leve,legumes;frito;crocante;shoyu,vegetariano;vegano;sem_lactose
+Feijoada,brasileira,porco,intenso,intensa,feijão;porco;defumado;linguiça;carne;laranja,sem_gluten;sem_lactose
+Moqueca de peixe,brasileira,peixe,picante,media,peixe;dendê;coco;pimenta;coentro,sem_gluten;sem_lactose
+Bobó de camarão,brasileira,frutos_do_mar,cremoso,media,camarão;mandioca;coco;dendê,sem_gluten;sem_lactose
+Picanha na brasa,brasileira,carne_vermelha,leve,intensa,carne;churrasco;brasa;sal_grosso;defumado,sem_gluten;sem_lactose
+Bife ancho com chimichurri,argentina,carne_vermelha,intenso,intensa,carne;grelhado;chimichurri;ervas;alho,sem_gluten;sem_lactose
+Coq au vin,francesa,ave,intenso,media,frango;vinho;cogumelos;bacon;ensopado,sem_gluten;sem_lactose
+Ratatouille,francesa,vegetal,tomate,leve,berinjela;abobrinha;tomate;ervas;azeite,vegetariano;vegano;sem_gluten;sem_lactose
+Salmão na manteiga de limão,francesa,peixe,cremoso,media,salmão;manteiga;limão;ervas,sem_gluten
+Tacos de carnitas,mexicana,porco,picante,media,porco;tortilla;pimenta;coentro;limão,sem_lactose
+Enchiladas de queijo,mexicana,queijo,picante,media,queijo;tortilla;pimenta;tomate;forno,vegetariano
+Falafel com homus,árabe,vegetal,leve,leve,grão_de_bico;tahine;ervas;frito;limão,vegetariano;vegano;sem_lactose
+Kafta grelhada,árabe,carne_vermelha,leve,media,carne;cordeiro;grelhado;especiarias;hortelã,sem_gluten;sem_lactose
